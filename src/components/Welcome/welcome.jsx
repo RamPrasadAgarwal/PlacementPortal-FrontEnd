@@ -80,8 +80,8 @@ class Welcome extends Component {
         >
           <input
             type="email"
-            name="email"
-            placeholder="Enter your Email ID"
+            name="usn"
+            placeholder="Enter your USN"
             required
           />
           <input
