@@ -1,0 +1,173 @@
+.Header{
+  height: 70px;
+  display:flex;
+  justify-content: space-between;
+  background: rgb(14,39,89);
+  color: white;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.Header-container{
+  width: 87%;
+  height: 70px;
+  display:flex;
+  justify-content: space-between;
+  background: rgb(14,39,89);
+  color: white;
+}
+
+.Header-button-container{
+  height: 100%;
+  display: flex;
+}
+
+.Header-home-link{
+  text-decoration: none;
+  color: white;
+}
+
+.register-button-a,
+.login-button-a
+{
+  display: block;
+  text-decoration: none;
+  text-align: center;
+  margin-right: 20px;
+  min-width: 80px;
+  background: none;
+  color: rgb(132,147,171);
+  border-bottom  : 4px solid rgb(14,39,89);
+  box-sizing: border-box;
+  font-size: 18px;
+  padding: 0 20px;
+}
+
+.register-button-a:hover,
+.register-button-a:focus,
+.login-button-a:hover,
+.login-button-a:focus,
+.Header-button-selected
+{
+  border-bottom: 4px solid rgb(77,170,233);
+  color: white;
+  outline: none;
+  cursor: pointer;
+}
+.Header-heading{
+  margin-left: 10px;
+}
+
+.Header-user-bar{
+  width: 50%;
+  display:flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.Header-notification-body{
+  width:100%;
+  width: 170px;
+  border-radius: 5px;
+  position:absolute;
+  background: rgb(33,49,71);
+  box-shadow: -1px 1px 10px 0.5px #111;
+  transform: translateX(-45%);
+  top: 45px;
+  overflow: hidden;
+}
+.Header-notification-number{
+  width: 15px;
+  height: 15px;
+  text-align: center;
+  background: red;
+  padding: 2px;
+  position: absolute;
+  border-radius: 100%;
+  top: -5px;
+  right: 45px;
+  padding-top: 0px;
+}
+.Header-logout-link{
+  width:60%;
+  min-width: 100px;
+  border-radius: 5px;
+  position:absolute;
+  top: 60px;
+  right: 0;
+  background: rgb(33,49,71);
+  box-shadow: -1px 1px 10px 0.5px #111;
+  align-self: center;
+}
+.Header-notification{
+  padding-right: 50px;
+  margin-top: 15px;
+  position: relative;
+}
+.Header-user{
+  position: relative;
+  display: flex;
+}
+
+.Header-logout-button{
+  text-align: center;
+  color: white;
+  text-decoration: none;
+  font-size: 12px;
+  padding: 3px 0;
+  width:100%;
+  background: none;
+  outline: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.Header-logout-button:hover{
+  cursor: pointer;
+}
+
+.display-xs{
+  display: none;
+}
+.Header-notification{
+  cursor: pointer;
+}
+
+.Header-username-container{
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .Header-container{
+      width: 100%;
+      padding: 0 15px;
+  }
+  .Header-heading{
+      font-size: 15px;
+      margin-left: 0;
+  }
+  .register-button-a,
+  .login-button-a
+  {
+      margin-right: 7px;
+  }
+  .register-button-a > p,
+  .login-button-a > p
+  {
+      font-size: 15px;
+      padding: 0;
+  }
+  .hidden-xs{
+      display: none;
+  }
+  .display-xs{
+      display: flex;
+  }
+  .links-divider{
+      padding: 0;
+      margin: 0;
+      width: 80%;
+      margin: auto;
+  }
+}

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Switch, Route, withRouter } from 'react-router-dom';
-// import Header from '../Header';
+import Header from '../Header/header';
 // import Signup from '../Signup';
 // import Login from '../Login';
 import Welcome from '../Welcome/welcome';
@@ -9,7 +9,7 @@ import Welcome from '../Welcome/welcome';
 
 const App = () => (
   <div className="App">
-    {/* <Header /> */}
+    <Header />
     <Switch>
       <Route exact path="/" component={Welcome} />
       {/* <Route path="/signup" component={Signup} /> */}
