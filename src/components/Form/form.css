@@ -40,7 +40,7 @@
   width: 100%;
   box-sizing: border-box;
 }
-.form-children-div input, .form-children-div select{
+.form-children-div input, .form-children-div select,.form-children-div textarea{
     width: 90%;
     border: none;
     border-radius: 4px;
@@ -52,6 +52,7 @@
     box-sizing: border-box;
     height: 50px;
 }
+
 @media screen and (max-width: 900px) {
   .form-div{
     width: 100%;
