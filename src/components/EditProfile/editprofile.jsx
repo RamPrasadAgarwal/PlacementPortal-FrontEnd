@@ -11,19 +11,20 @@ class EditProfile extends Component {
     };
   }
   componentDidMount() {
-    // const authtoken = window.localStorage.getItem('placementtoken');
-    // fetch('/profile', {
-    //   method: 'GET',
-    //   headers: { authtoken },
-    // })
-    //   .then(response => response.json())
-    //   .then(console.log);
+    const authtoken = window.localStorage.getItem('placementtoken');
+    fetch('/profile', {
+      method: 'GET',
+      headers: { authtoken },
+    })
+      .then(response => response.json())
+      .then(console.log);
   }
   profileedit(e) {
     const authtoken = window.localStorage.getItem('placementtoken');
     e.preventDefault();
     const data = new FormData(e.target);
     const payload = {
+      fullname: window.localStorage.getItem('placementusername'),
       email: data.get('email'),
       dob: data.get('dob'),
       sex: data.get('sex'),
@@ -101,12 +102,12 @@ class EditProfile extends Component {
                 value=""
                 required
               />
-              <select name="sex" placeholder="SEX">
+              <select name="sex" placeholder="Sex">
                 <option disabled selected>Gender</option>
                 <option value="Male">Male</option>
                 <option value="Male">Female</option>
               </select>
-              <select name="sex" placeholder="SEX">
+              <select name="branch" placeholder="Branch">
                 <option disabled selected>Branch</option>
                 <option value="cse">Computer Science and Engineering</option>
                 <option value="ise">Information Science and Engineering</option>
