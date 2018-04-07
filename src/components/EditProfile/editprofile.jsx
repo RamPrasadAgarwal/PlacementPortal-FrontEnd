@@ -127,33 +127,214 @@ class EditProfile extends Component {
 
               <input
                 type="text"
-                name="name"
-                placeholder=""
+                name="usn"
+                placeholder="USN"
                 value=""
                 required
               />
               <input
                 type="text"
-                name="name"
-                placeholder=""
+                name="xinstitute"
+                placeholder="Institution Attended in 10th Std"
                 value=""
                 required
               />
               <input
                 type="text"
-                name="name"
-                placeholder=""
+                name="xboard"
+                placeholder="10th Board"
                 value=""
                 required
               />
               <input
                 type="text"
-                name="name"
-                placeholder=""
+                name="xmarks"
+                placeholder="10th Marks"
                 value=""
                 required
               />
-
+              <input
+                type="text"
+                name="xyear"
+                placeholder="10th Passing Year"
+                value=""
+                required
+              />
+              <input
+                type="text"
+                name="xiiinstitute"
+                placeholder="Institution Attended in 12th Std"
+                value=""
+                required
+              />
+              <input
+                type="text"
+                name="xiiboard"
+                placeholder="12th Board"
+                value=""
+                required
+              />
+              <input
+                type="text"
+                name="xiimarks"
+                placeholder="12th Marks"
+                value=""
+                required
+              />
+              <input
+                type="text"
+                name="xiiyear"
+                placeholder="12th Passing Year"
+                value=""
+                required
+              />
+              <input
+                type="text"
+                name="cetrank"
+                placeholder="CET Rank"
+                value=""
+                required
+              />
+              <input
+                type="text"
+                name="cgpa1"
+                placeholder="1st Sem CGPA"
+                value=""
+                required
+              />
+              <input
+                type="text"
+                name="credit1"
+                placeholder="Credits Obtained in 1st Sem"
+                value=""
+                required
+              />
+               <input
+                type="text"
+                name="cgpa2"
+                placeholder="2nd Sem CGPA"
+                value=""
+                required
+              />
+              <input
+                type="text"
+                name="credit2"
+                placeholder="Credits Obtained in 2nd Sem"
+                value=""
+                required
+              />
+               <input
+                type="text"
+                name="cgpa3"
+                placeholder="3rd Sem CGPA"
+                value=""
+                required
+              />
+              <input
+                type="text"
+                name="credit3"
+                placeholder="Credits Obtained in 3rd Sem"
+                value=""
+                required
+              />
+               <input
+                type="text"
+                name="cgpa4"
+                placeholder="4th Sem CGPA"
+                value=""
+                required
+              />
+              <input
+                type="text"
+                name="credit4"
+                placeholder="Credits Obtained in 4th Sem"
+                value=""
+                required
+              />
+               <input
+                type="text"
+                name="cgpa5"
+                placeholder="5th Sem CGPA"
+                value=""
+                required
+              />
+              <input
+                type="text"
+                name="credit5"
+                placeholder="Credits Obtained in 5th Sem"
+                value=""
+                required
+              />
+               <input
+                type="text"
+                name="cgpa6"
+                placeholder="6th Sem CGPA"
+                value=""
+                required
+              />
+              <input
+                type="text"
+                name="credit6"
+                placeholder="Credits Obtained in 6th Sem"
+                value=""
+                required
+              />
+               <input
+                type="text"
+                name="cgpa7"
+                placeholder="7th Sem CGPA"
+                value=""
+                required
+              />
+              <input
+                type="text"
+                name="credit7"
+                placeholder="Credits Obtained in 7th Sem"
+                value=""
+                required
+              />
+               <input
+                type="text"
+                name="cgpa8"
+                placeholder="8th Sem CGPA"
+                value=""
+                required
+              />
+              <input
+                type="text"
+                name="credit8"
+                placeholder="Credits Obtained in 8th Sem"
+                value=""
+                required
+              />
+               <input
+                type="text"
+                name="totalcredit"
+                placeholder="Total Credits Obtained"
+                value=""
+                required
+              />
+              <input
+                type="text"
+                name="mutebacklog"
+                placeholder="No of Subjects Cleared In Mute"
+                value=""
+                required
+              />
+               <input
+                type="text"
+                name="clearbacklog"
+                placeholder="Cleared Arrears"
+                value=""
+                required
+              />
+              <input
+                type="text"
+                name="currentbacklog"
+                placeholder="Current Arrears"
+                value=""
+                required
+              />
             </Form>
           </div>
         </div>
