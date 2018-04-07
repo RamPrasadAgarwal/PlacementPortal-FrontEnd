@@ -7,62 +7,85 @@ class Welcome extends Component {
   constructor() {
     super();
     this.state = {
-      error: null,
+      errorsignup: null,
+      errorlogin: null,
     };
   }
+
   componentWillMount() {
-    if (window.localStorage.getItem('cryptologgedin') === 'true') {
-      this.props.history.push('/');
+    if (window.localStorage.getItem('placementtoken') !== null && window.localStorage.getItem('placementtoken') !== undefined) {
+      // this.props.history.push('/dashboard');
     }
   }
   registerUser(e) {
     e.preventDefault();
     const data = new FormData(e.target);
-    const fullName = data.get('fullname');
-    const email = data.get('email');
+    const usn = data.get('usn');
     const password = data.get('password');
+    const fullName = data.get('name');
     const confirmPassword = data.get('confirmpassword');
-    const mobileNumbe = data.get('contact');
     if (password !== confirmPassword) {
       this.setState({
-        error: 'Ops! Password Mismatch',
+        errorsignup: 'Ops! Password Mismatch',
       });
     } else {
       const payload = {
-        fullName,
-        email,
+        usn,
         password,
-        confirmPassword,
-        mobileNumbe,
+        fullName,
       };
       fetch('/signup', {
         method: 'POST',
         body: JSON.stringify(payload),
       })
+        .then(response => response.json())
         .then((response) => {
-          switch (response.status) {
+          switch (response.code) {
             case 201:
-              this.props.history.push('/login', { message: 'Registration Successfull! Please login', messageType: 'Success' });
-              break;
-
-            case 409:
-              this.setState({
-                error: 'You are already registered',
-              });
-              break;
-
-            case 422:
-              this.setState({
-                error: 'Please provide correct details',
-              });
+              this.props.history.push('/editprofile');
               break;
 
             default: this.setState({
-              error: 'Sorry! some internal error occured',
+              errorsignup: response.message,
             });
           }
         });
     }
+  }
+  loginUser(e) {
+    e.preventDefault();
+    const data = new FormData(e.target);
+    const usn = data.get('usn');
+    const password = data.get('password');
+    const payload = {
+      usn,
+      password,
+    };
+    fetch('/login', {
+      method: 'POST',
+      body: JSON.stringify(payload),
+    })
+      .then(response => response.json())
+      .then((response) => {
+        console.log(response);
+        switch (response.code) {
+          case 200:
+            window.localStorage.setItem('placementtoken', response.token);
+            window.localStorage.setItem('placementusername', response.fullName);
+            this.props.history.push('/profile', { message: 'Registration Successfull! Please fill your academic details' });
+            break;
+
+          case 409:
+            this.setState({
+              errorlogin: 'Username or Password Invalid',
+            });
+            break;
+
+          default: this.setState({
+            errorlogin: 'Sorry! some internal error occured',
+          });
+        }
+      });
   }
 
   render() {
@@ -70,32 +93,30 @@ class Welcome extends Component {
       <div className="signup-body-div">
         <div className="signup-body">
           <div className="signup-text">
-          <div className="LoginForm">
-        <Form
-          error={this.props.message}
-          errorType={this.props.messageType}
-          formHeading="Login"
-          buttonMessage="Login"
-          submit={(e) => { this.submit(e); }}
-        >
-          <input
-            type="email"
-            name="usn"
-            placeholder="Enter your USN"
-            required
-          />
-          <input
-            type="password"
-            name="password"
-            placeholder="Enter Password"
-            required
-          />
-        </Form>
-      </div>
+            <div className="LoginForm">
+              <Form
+                error={this.state.errorlogin}
+                formHeading="Login"
+                buttonMessage="Login"
+                submit={(e) => { this.loginUser(e); }}
+              >
+                <input
+                  type="text"
+                  name="usn"
+                  placeholder="USN"
+                  required
+                />
+                <input
+                  type="password"
+                  name="password"
+                  placeholder="Password"
+                  required
+                />
+              </Form>
+            </div>
           </div>
-
           <Form
-            error={this.state.error}
+            error={this.state.errorsignup}
             submit={(e) => { this.registerUser(e); }}
             formHeading="Register"
             buttonMessage="Create your account"
@@ -104,12 +125,18 @@ class Welcome extends Component {
               type="text"
               name="usn"
               required
-              placeholder="Enter your USN"
+              placeholder="USN"
+            />
+            <input
+              type="text"
+              name="name"
+              required
+              placeholder="Full Name"
             />
             <input
               type="password"
               name="password"
-              placeholder="Enter Password"
+              placeholder="Password"
               required
             />
             <input
@@ -117,7 +144,7 @@ class Welcome extends Component {
               name="confirmpassword"
               placeholder="Confirm Password"
               required
-            />  
+            />
           </Form>
         </div>
       </div>

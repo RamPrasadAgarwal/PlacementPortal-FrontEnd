@@ -8,30 +8,14 @@ class Header extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      showNotification: false,
-      loginButton: false,
-      notifications: [],
-      numberNotifications: 0,
     };
   }
-  
+
   logout() {
-    window.localStorage.setItem('placementloggedin', false);
     window.localStorage.setItem('placementtoken', null);
     window.localStorage.setItem('placementusername', null);
-    window.localStorage.setItem('placementNotifications', null);
-    this.setState({
-      notifications: [],
-      numberNotifications: 0,
-    });
     this.forceUpdate();
     this.props.history.push('/');
-  }
-  toggleLogin = () => {
-    this.setState({
-      loginButton: !this.state.loginButton,
-      showNotification: false,
-    });
   }
 
   render() {
