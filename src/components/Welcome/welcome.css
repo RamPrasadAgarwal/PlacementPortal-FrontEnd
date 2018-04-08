@@ -1,7 +1,4 @@
 .signup-body-div{
-  background: url('./welcome.jpg');
-  background-size: cover;
-  background-position: center;
   display: flex;
   flex-direction: column;
   flex: 1;
