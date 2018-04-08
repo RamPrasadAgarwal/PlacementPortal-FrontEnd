@@ -13,7 +13,7 @@ class Welcome extends Component {
   }
 
   componentWillMount() {
-    if (window.localStorage.getItem('placementtoken') !== null && window.localStorage.getItem('placementtoken') !== undefined) {
+    if (window.localStorage.getItem('placementloggedin') === 'true') {
       // this.props.history.push('/dashboard');
     }
   }
@@ -72,6 +72,7 @@ class Welcome extends Component {
           case 200:
             window.localStorage.setItem('placementtoken', response.token);
             window.localStorage.setItem('placementusername', response.fullName);
+            window.localStorage.setItem('placementloggedin', 'true');
             this.props.history.push('/profile', { message: 'Registration Successfull! Please fill your academic details' });
             break;
 

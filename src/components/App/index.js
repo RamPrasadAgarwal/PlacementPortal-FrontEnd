@@ -16,7 +16,6 @@ const App = () => (
       <Route exact path="/editprofile" component={EditProfile} />
       <Route exact path="/company" component={Company} />
       <Route exact path="/admin" component={Admin} />
-
       {/* <Route path="*" exact component={NotFound} /> */}
     </Switch>
   </div>
