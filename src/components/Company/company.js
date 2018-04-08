@@ -7,45 +7,50 @@ class Company extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      errorprofile: null,
+      error: null,
+      errortype: null,
     };
-  }
-  componentDidMount() {
-    const authtoken = window.localStorage.getItem('placementtoken');
-    fetch('/profile', {
-      method: 'GET',
-      headers: { authtoken },
-    })
-      .then(response => response.json())
-      .then(console.log);
   }
   profileedit(e) {
     const authtoken = window.localStorage.getItem('placementtoken');
     e.preventDefault();
     const data = new FormData(e.target);
     const payload = {
-      fullname: window.localStorage.getItem('placementusername'),
-      cname: data.get('cname'),
+      name: data.get('cname'),
       about: data.get('about'),
       position: data.get('position'),
       location: data.get('location'),
-      testdate: data.get('testdate'),
-      interviewdate: data.get('interviewdate'),
-      salary: data.get('salary'),
-      descript: data.get('descript'),
+      test: data.get('testdate'),
+      interview: data.get('interviewdate'),
+      ctc: data.get('salary'),
+      jd: data.get('descript'),
       branch: data.get('branch'),
       xmarks: data.get('xmarks'),
       xiimarks: data.get('xiimarks'),
       history: data.get('history'),
       cgpa: data.get('cgpa'),
+      venue: data.get('venue'),
     };
-    fetch('/profile', {
+    fetch('/comapny', {
       method: 'POST',
       headers: { authtoken },
       body: JSON.stringify(payload),
     })
       .then(response => response.json())
-      .then(console.log);
+      .then((response) => {
+        if (response.code === 201) {
+          this.setState({
+            errortype: 'Success',
+          });
+        } else {
+          this.setState({
+            errortype: 'Error',
+          });
+        }
+        this.setState({
+          error: response.message,
+        });
+      });
     this.setState({});
   }
   render() {
@@ -54,7 +59,8 @@ class Company extends Component {
         <div className="editprofile-body">
           <div className="profileForm">
             <Form
-              error={this.state.errorprofile}
+              error={this.state.error}
+              errorType={this.state.errortype}
               formHeading={`Hi! ${window.localStorage.getItem('placementusername')}, Please provide the Company details`}
               buttonMessage="Login"
               submit={(e) => { this.profileedit(e); }}
@@ -74,35 +80,30 @@ class Company extends Component {
                 type="text"
                 name="testdate"
                 placeholder="Test Date (dd/mm/yyyy)"
-                value=""
                 required
               />
               <input
                 type="text"
                 name="interviewdate"
                 placeholder="Interview Date (dd/mm/yyyy)"
-                value=""
                 required
               />
               <input
                 type="text"
                 name="position"
                 placeholder="Position"
-                value=""
                 required
               />
               <input
                 type="text"
                 name="location"
                 placeholder="Job Location"
-                value=""
                 required
               />
               <input
                 type="text"
                 name="salary"
                 placeholder="Salary(CTC)"
-                value=""
                 required
               />
               <textarea
@@ -120,25 +121,26 @@ class Company extends Component {
                 <option value="ec">Electrical Engineering</option>
                 <option value="eee">Electrical and Electronic Engineering</option>
                 <option value="ip">Industrial Production</option>
+                <option value="cv">Civil Engineering</option>
               </select>
               <input
                 type="text"
-                name="xper"
+                name="xmarks"
                 placeholder="10th Percentage"
                 value=""
                 required
               />
               <input
                 type="text"
-                name="xiiper"
+                name="xiimarks"
                 placeholder="12th Percentage"
                 value=""
                 required
               />
               <select name="history" placeholder="History">
                 <option disabled selected>History</option>
-                <option value="Male">Yes</option>
-                <option value="Male">No</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
               </select>
               <input
                 type="text"
