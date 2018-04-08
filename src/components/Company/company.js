@@ -29,6 +29,8 @@ class Company extends Component {
       about: data.get('about'),
       position: data.get('position'),
       location: data.get('location'),
+      testdate: data.get('testdate'),
+      interviewdate: data.get('interviewdate'),
       salary: data.get('salary'),
       descript: data.get('descript'),
       branch: data.get('branch'),
@@ -36,7 +38,7 @@ class Company extends Component {
       xiimarks: data.get('xiimarks'),
       history: data.get('history'),
       cgpa: data.get('cgpa'),
-     };
+    };
     fetch('/profile', {
       method: 'POST',
       headers: { authtoken },
@@ -64,11 +66,24 @@ class Company extends Component {
                 required
               />
               <textarea
-               name="about" 
-               placeholder="About the Company.." 
-               
-               required>
-               </textarea>
+                name="about"
+                placeholder="About the Company.."
+                required
+              />
+              <input
+                type="text"
+                name="testdate"
+                placeholder="Test Date (dd/mm/yyyy)"
+                value=""
+                required
+              />
+              <input
+                type="text"
+                name="interviewdate"
+                placeholder="Interview Date (dd/mm/yyyy)"
+                value=""
+                required
+              />
               <input
                 type="text"
                 name="position"
@@ -91,11 +106,11 @@ class Company extends Component {
                 required
               />
               <textarea
-               name="descript" 
-               placeholder="Job Description.." 
-              
-               required>
-               </textarea>
+                name="descript"
+                placeholder="Job Description.."
+
+                required
+              />
               <select name="branch" placeholder="Branch" multiple>
                 <option disabled selected>Branch</option>
                 <option value="all">All</option>
@@ -132,7 +147,7 @@ class Company extends Component {
                 value=""
                 required
               />
-             
+
             </Form>
           </div>
         </div>
