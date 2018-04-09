@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Textarea from 'react-textarea-autosize';
 import Form from '../Form/form';
 import './editprofile.css';
 
@@ -118,8 +119,9 @@ class EditProfile extends Component {
                 <option value="ip">Industrial Production</option>
                 <option value="cv">Civil Engineering</option>
               </select>
-              <input
-                type="text"
+              <Textarea
+                maxRows={5}
+                minRows={5}
                 name="address"
                 placeholder={this.state.profile.address ? this.state.profile.address : 'Address'}
               />
