@@ -96,16 +96,64 @@ class Company extends Component {
               
                required>
                </textarea>
-              <select name="branch" placeholder="Branch" multiple>
-                <option disabled selected>Branch</option>
-                <option value="all">All</option>
-                <option value="cse">Computer Science and Engineering</option>
-                <option value="ise">Information Science and Engineering</option>
-                <option value="me">Mechanical Engineering</option>
-                <option value="ec">Electrical Engineering</option>
-                <option value="eee">Electrical and Electronic Engineering</option>
-                <option value="ip">Industrial Production</option>
-              </select>
+               <label style={{fontSize: "22px",paddingLeft: "40px"}}>Branch</label>
+               <label class="container">All
+  						<input 
+  						type="checkbox"
+                		name="branch"
+                		value="all"
+                		required />
+  						<span class="checkmark"></span>
+				</label>
+               <label class="container">Computer Science and Engineering
+  						<input 
+  						type="checkbox"
+                		name="branch"
+                		value="cse"
+                		required />
+  						<span class="checkmark"></span>
+				</label>
+               <label class="container">Information Science 
+  						<input 
+  						type="checkbox"
+                		name="branch"
+                		value="ise"
+                		required />
+  						<span class="checkmark"></span>
+				</label>
+               <label class="container">Mechanical Engineering
+  						<input 
+  						type="checkbox"
+                		name="branch"
+                		value="me"
+                		required />
+  						<span class="checkmark"></span>
+				</label>
+               <label class="container">Electronics Engineering
+  						<input 
+  						type="checkbox"
+                		name="branch"
+                		value="ec"
+                		required />
+  						<span class="checkmark"></span>
+				</label>
+               <label class="container">Electronics and Electrical Engineering
+  						<input 
+  						type="checkbox"
+                		name="branch"
+                		value="eee"
+                		required />
+  						<span class="checkmark"></span>
+				</label>
+               <label class="container">Industrial Production 
+  						<input 
+  						type="checkbox"
+                		name="branch"
+                		value="ip"
+                		required />
+  						<span class="checkmark"></span>
+				</label>
+               
               <input
                 type="text"
                 name="xper"
