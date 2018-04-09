@@ -8,7 +8,12 @@ class ErrorMessage extends Component {
     return (
       <div className="error-message-body">
         {this.props.message ?
+        this.props.messageType === 'Error' ?
           <div className="error-message">
+            {this.props.message}
+          </div>
+            :
+          <div className="error-message ErrorMessage-Success">
             {this.props.message}
           </div>
             : ''

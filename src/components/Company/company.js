@@ -7,43 +7,50 @@ class Company extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      errorprofile: null,
+      error: null,
+      errortype: null,
     };
-  }
-  componentDidMount() {
-    const authtoken = window.localStorage.getItem('placementtoken');
-    fetch('/profile', {
-      method: 'GET',
-      headers: { authtoken },
-    })
-      .then(response => response.json())
-      .then(console.log);
   }
   profileedit(e) {
     const authtoken = window.localStorage.getItem('placementtoken');
     e.preventDefault();
     const data = new FormData(e.target);
     const payload = {
-      fullname: window.localStorage.getItem('placementusername'),
-      cname: data.get('cname'),
+      name: data.get('cname'),
       about: data.get('about'),
       position: data.get('position'),
       location: data.get('location'),
-      salary: data.get('salary'),
-      descript: data.get('descript'),
+      test: data.get('testdate'),
+      interview: data.get('interviewdate'),
+      ctc: data.get('salary'),
+      jd: data.get('descript'),
       branch: data.get('branch'),
       xmarks: data.get('xmarks'),
       xiimarks: data.get('xiimarks'),
       history: data.get('history'),
       cgpa: data.get('cgpa'),
-     };
-    fetch('/profile', {
+      venue: data.get('venue'),
+    };
+    fetch('/comapny', {
       method: 'POST',
       headers: { authtoken },
       body: JSON.stringify(payload),
     })
       .then(response => response.json())
-      .then(console.log);
+      .then((response) => {
+        if (response.code === 201) {
+          this.setState({
+            errortype: 'Success',
+          });
+        } else {
+          this.setState({
+            errortype: 'Error',
+          });
+        }
+        this.setState({
+          error: response.message,
+        });
+      });
     this.setState({});
   }
   render() {
@@ -52,7 +59,8 @@ class Company extends Component {
         <div className="editprofile-body">
           <div className="profileForm">
             <Form
-              error={this.state.errorprofile}
+              error={this.state.error}
+              errorType={this.state.errortype}
               formHeading={`Hi! ${window.localStorage.getItem('placementusername')}, Please provide the Company details`}
               buttonMessage="Login"
               submit={(e) => { this.profileedit(e); }}
@@ -64,38 +72,45 @@ class Company extends Component {
                 required
               />
               <textarea
-               name="about" 
-               placeholder="About the Company.." 
-               
-               required>
-               </textarea>
+                name="about"
+                placeholder="About the Company.."
+                required
+              />
+              <input
+                type="text"
+                name="testdate"
+                placeholder="Test Date (dd/mm/yyyy)"
+                required
+              />
+              <input
+                type="text"
+                name="interviewdate"
+                placeholder="Interview Date (dd/mm/yyyy)"
+                required
+              />
               <input
                 type="text"
                 name="position"
                 placeholder="Position"
-                value=""
                 required
               />
               <input
                 type="text"
                 name="location"
                 placeholder="Job Location"
-                value=""
                 required
               />
               <input
                 type="text"
                 name="salary"
                 placeholder="Salary(CTC)"
-                value=""
                 required
               />
               <textarea
-               name="descript" 
-               placeholder="Job Description.." 
-              
-               required>
-               </textarea>
+				name="descript" 
+                placeholder="Job Description.." 
+                required >
+              </textarea>
                <label style={{fontSize: "22px",paddingLeft: "40px"}}>Branch</label>
                <label class="container">All
   						<input 
@@ -153,25 +168,38 @@ class Company extends Component {
                 		required />
   						<span class="checkmark"></span>
 				</label>
+             
                
+              <select name="branch" placeholder="Branch" multiple>
+                <option disabled selected>Branch</option>
+                <option value="all">All</option>
+                <option value="cse">Computer Science and Engineering</option>
+                <option value="ise">Information Science and Engineering</option>
+                <option value="me">Mechanical Engineering</option>
+                <option value="ec">Electrical Engineering</option>
+                <option value="eee">Electrical and Electronic Engineering</option>
+                <option value="ip">Industrial Production</option>
+                <option value="cv">Civil Engineering</option>
+              </select>
+>>>>>>> 8fc73f67921d84304d06b1c6a197de908966d047
               <input
                 type="text"
-                name="xper"
+                name="xmarks"
                 placeholder="10th Percentage"
                 value=""
                 required
               />
               <input
                 type="text"
-                name="xiiper"
+                name="xiimarks"
                 placeholder="12th Percentage"
                 value=""
                 required
               />
               <select name="history" placeholder="History">
                 <option disabled selected>History</option>
-                <option value="Male">Yes</option>
-                <option value="Male">No</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
               </select>
               <input
                 type="text"
@@ -180,7 +208,7 @@ class Company extends Component {
                 value=""
                 required
               />
-             
+
             </Form>
           </div>
         </div>

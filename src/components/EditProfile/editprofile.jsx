@@ -8,16 +8,21 @@ class EditProfile extends Component {
     super(props);
     this.state = {
       errorprofile: null,
+      profile: [],
     };
+    this.fetchProfileDetails();
   }
-  componentDidMount() {
-    const authtoken = window.localStorage.getItem('placementtoken');
+  fetchProfileDetails() {
     fetch('/profile', {
       method: 'GET',
-      headers: { authtoken },
+      headers: { authtoken: window.localStorage.getItem('placementtoken') },
     })
       .then(response => response.json())
-      .then(console.log);
+      .then((response) => {
+        this.setState({
+          profile: response.profile,
+        });
+      });
   }
   profileedit(e) {
     const authtoken = window.localStorage.getItem('placementtoken');
@@ -36,7 +41,7 @@ class EditProfile extends Component {
       xmarks: data.get('xmarks'),
       xyear: data.get('xyear'),
       xiiinstitute: data.get('xiiinstitute'),
-      xiiboard: data.get('xiiboard'),
+      xiiboard: parseFloat(data.get('xiiboard')),
       xiimarks: data.get('xiimarks'),
       xiiyear: data.get('xiiyear'),
       cetrank: data.get('cetrank'),
@@ -85,29 +90,25 @@ class EditProfile extends Component {
               <input
                 type="email"
                 name="email"
-                placeholder="Email"
-                required
+                placeholder={this.state.profile.email ? this.state.profile.email : 'Email'}
               />
               <input
                 type="text"
                 name="dob"
-                placeholder="Date of Birth (dd/mm/yyyy)"
-                value=""
-                required
+                placeholder={this.state.profile.dob ? this.state.profile.dob : 'Date of Birth (dd/mm/yyyy)'}
               />
               <input
                 type="number"
                 name="phone"
-                placeholder="Contact Number"
-                value=""
-                required
+                placeholder={this.state.profile.phone ? this.state.profile.phone : 'Contact Number (Without +91)'}
+                max="9999999999"
               />
-              <select name="sex" placeholder="Sex">
+              <select name="sex" placeholder="Sex" value={this.state.profile.sex}>
                 <option disabled selected>Gender</option>
                 <option value="Male">Male</option>
                 <option value="Male">Female</option>
               </select>
-              <select name="branch" placeholder="Branch">
+              <select name="branch" placeholder="Branch" value={this.state.profile.branch}>
                 <option disabled selected>Branch</option>
                 <option value="cse">Computer Science and Engineering</option>
                 <option value="ise">Information Science and Engineering</option>
@@ -115,225 +116,159 @@ class EditProfile extends Component {
                 <option value="ec">Electrical Engineering</option>
                 <option value="eee">Electrical and Electronic Engineering</option>
                 <option value="ip">Industrial Production</option>
+                <option value="cv">Civil Engineering</option>
               </select>
               <input
                 type="text"
                 name="address"
-                placeholder="Address"
-                value=""
-                required
+                placeholder={this.state.profile.address ? this.state.profile.address : 'Address'}
               />
               <br />
 
               <input
                 type="text"
-                name="usn"
-                placeholder="USN"
-                value=""
-                required
-              />
-              <input
-                type="text"
                 name="xinstitute"
-                placeholder="Institution Attended in 10th Std"
-                value=""
-                required
+                placeholder={this.state.profile.xinstitute ? this.state.profile.xinstitute : 'Institution Attended in 10th Std'}
               />
               <input
                 type="text"
                 name="xboard"
-                placeholder="10th Board"
-                value=""
-                required
+                placeholder={this.state.profile.xboard ? this.state.profile.xboard : '10th Board'}
               />
               <input
                 type="text"
                 name="xmarks"
-                placeholder="10th Marks"
-                value=""
-                required
+                placeholder={this.state.profile.xmarks >= 0 ? this.state.profile.xmarks : '10th Marks'}
               />
               <input
-                type="text"
+                type="number"
                 name="xyear"
-                placeholder="10th Passing Year"
-                value=""
-                required
+                placeholder={this.state.profile.xyear >= 0 ? this.state.profile.xyear : '10th Passing Year'}
               />
               <input
                 type="text"
                 name="xiiinstitute"
-                placeholder="Institution Attended in 12th Std"
-                value=""
-                required
+                placeholder={this.state.profile.xiiinstitute ? this.state.profile.xiiinstitute : 'Institution Attended in 12th Std'}
               />
               <input
                 type="text"
                 name="xiiboard"
-                placeholder="12th Board"
-                value=""
-                required
+                placeholder={this.state.profile.xiiboard ? this.state.profile.xiiboard : '12th Board'}
               />
               <input
                 type="text"
                 name="xiimarks"
-                placeholder="12th Marks"
-                value=""
-                required
+                placeholder={this.state.profile.xiimarks >= 0 ? this.state.profile.xiimarks : '12th Marks'}
               />
               <input
-                type="text"
+                type="number"
                 name="xiiyear"
-                placeholder="12th Passing Year"
-                value=""
-                required
+                placeholder={this.state.profile.xiiyear ? this.state.profile.xiiyear : '12th Passing Year'}
               />
               <input
-                type="text"
+                type="number"
                 name="cetrank"
-                placeholder="CET Rank"
-                value=""
-                required
+                placeholder={this.state.profile.cetrank >= 0 ? this.state.profile.cetrank : 'CET Rank'}
               />
               <input
                 type="text"
                 name="cgpa1"
-                placeholder="1st Sem CGPA"
-                value=""
-                required
+                placeholder={this.state.profile.cgpa1 >= 0 ? this.state.profile.cgpa1 : 'Semester 1 CGPA'}
               />
               <input
-                type="text"
+                type="number"
                 name="credit1"
-                placeholder="Credits Obtained in 1st Sem"
-                value=""
-                required
+                placeholder={this.state.profile.credit1 >= 0 ? this.state.profile.credit1 : 'Credits Earned in Semester 1'}
               />
-               <input
+              <input
                 type="text"
                 name="cgpa2"
-                placeholder="2nd Sem CGPA"
-                value=""
-                required
+                placeholder={this.state.profile.cgpa2 >= 0 ? this.state.profile.cgpa2 : 'Semester 2 CGPA'}
               />
               <input
-                type="text"
+                type="number"
                 name="credit2"
-                placeholder="Credits Obtained in 2nd Sem"
-                value=""
-                required
+                placeholder={this.state.profile.credit2 >= 0 ? this.state.profile.credit2 : 'Credits Earned in Semester 2'}
               />
-               <input
+              <input
                 type="text"
                 name="cgpa3"
-                placeholder="3rd Sem CGPA"
-                value=""
-                required
+                placeholder={this.state.profile.cgpa3 >= 0 ? this.state.profile.cgpa3 : 'Semester 3 CGPA'}
               />
               <input
-                type="text"
+                type="number"
                 name="credit3"
-                placeholder="Credits Obtained in 3rd Sem"
-                value=""
-                required
+                placeholder={this.state.profile.credit3 >= 0 ? this.state.profile.credit3 : 'Credits Earned in Semester 3'}
               />
-               <input
+              <input
                 type="text"
                 name="cgpa4"
-                placeholder="4th Sem CGPA"
-                value=""
-                required
+                placeholder={this.state.profile.cgpa4 >= 0 ? this.state.profile.cgpa4 : 'Semester 4 CGPA'}
               />
               <input
-                type="text"
+                type="number"
                 name="credit4"
-                placeholder="Credits Obtained in 4th Sem"
-                value=""
-                required
+                placeholder={this.state.profile.credit4 >= 0 ? this.state.profile.credit4 : 'Credits Earned in Semester 4'}
               />
-               <input
+              <input
                 type="text"
                 name="cgpa5"
-                placeholder="5th Sem CGPA"
-                value=""
-                required
+                placeholder={this.state.profile.cgpa5 >= 0 ? this.state.profile.cgpa5 : 'Semester 5 CGPA'}
               />
               <input
-                type="text"
+                type="number"
                 name="credit5"
-                placeholder="Credits Obtained in 5th Sem"
-                value=""
-                required
+                placeholder={this.state.profile.credit5 >= 0 ? this.state.profile.credit5 : 'Credits Earned in Semester 5'}
               />
-               <input
+              <input
                 type="text"
                 name="cgpa6"
-                placeholder="6th Sem CGPA"
-                value=""
-                required
+                placeholder={this.state.profile.cgpa6 >= 0 ? this.state.profile.cgpa6 : 'Semester 6 CGPA'}
               />
               <input
-                type="text"
+                type="number"
                 name="credit6"
-                placeholder="Credits Obtained in 6th Sem"
-                value=""
-                required
+                placeholder={this.state.profile.credit6 >= 0 ? this.state.profile.credit6 : 'Credits Earned in Semester 6'}
               />
-               <input
+              <input
                 type="text"
                 name="cgpa7"
-                placeholder="7th Sem CGPA"
-                value=""
-                required
+                placeholder={this.state.profile.cgpa7 >= 0 ? this.state.profile.cgpa7 : 'Semester 7 CGPA'}
               />
               <input
-                type="text"
+                type="number"
                 name="credit7"
-                placeholder="Credits Obtained in 7th Sem"
-                value=""
-                required
+                placeholder={this.state.profile.credit7 >= 0 ? this.state.profile.credit7 : 'Credits Earned in Semester 7'}
               />
-               <input
+              <input
                 type="text"
                 name="cgpa8"
-                placeholder="8th Sem CGPA"
-                value=""
-                required
+                placeholder={this.state.profile.cgpa8 >= 0 ? this.state.profile.cgpa8 : 'Semester 8 CGPA'}
               />
               <input
-                type="text"
+                type="number"
                 name="credit8"
-                placeholder="Credits Obtained in 8th Sem"
-                value=""
-                required
+                placeholder={this.state.profile.credit8 >= 0 ? this.state.profile.credit8 : 'Credits Earned in Semester 8'}
               />
-               <input
-                type="text"
+              <input
+                type="number"
                 name="totalcredit"
-                placeholder="Total Credits Obtained"
-                value=""
-                required
+                placeholder={this.state.profile.totalcredit >= 0 ? this.state.profile.totalcredit : 'Total Credits Earned'}
               />
               <input
-                type="text"
+                type="number"
                 name="mutebacklog"
-                placeholder="No of Subjects Cleared In Mute"
-                value=""
-                required
-              />
-               <input
-                type="text"
-                name="clearbacklog"
-                placeholder="Cleared Arrears"
-                value=""
-                required
+                placeholder={this.state.profile.mutebacklog >= 0 ? this.state.profile.mutebacklog : 'No of Subjects Cleared In Mute'}
               />
               <input
-                type="text"
+                type="number"
+                name="clearbacklog"
+                placeholder={this.state.profile.clearbacklog >= 0 ? this.state.profile.clearbacklog : 'Cleared Arrears'}
+              />
+              <input
+                type="number"
                 name="currentbacklog"
-                placeholder="Current Arrears"
-                value=""
-                required
+                placeholder={this.state.profile.currentbacklog >= 0 ? this.state.profile.currentbacklog : 'Current Arrears'}
               />
             </Form>
           </div>

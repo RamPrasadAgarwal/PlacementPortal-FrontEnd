@@ -8,12 +8,18 @@ class Header extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      loginButton: false,
     };
   }
-
+  toggleLogin() {
+    this.setState({
+      loginButton: !this.state.loginButton,
+    });
+  }
   logout() {
     window.localStorage.setItem('placementtoken', null);
     window.localStorage.setItem('placementusername', null);
+    window.localStorage.setItem('placementloggedin', null);
     this.forceUpdate();
     this.props.history.push('/');
   }
@@ -35,24 +41,16 @@ class Header extends Component {
               <NavLink
                 className="register-button-a"
                 activeClassName="Header-button-selected"
-                to="/"
-                exact
+                to="/dashboard"
               >
-                <p>Home</p>
+                <p>Dashboard</p>
               </NavLink>
               <NavLink
                 className="register-button-a"
                 activeClassName="Header-button-selected"
-                to="/portfolio"
+                to="/profile"
               >
-                <p>Portfolio</p>
-              </NavLink>
-              <NavLink
-                className="register-button-a"
-                activeClassName="Header-button-selected"
-                to="/transfers"
-              >
-                <p>Transfers</p>
+                <p>Profile</p>
               </NavLink>
             </div>
               : ''}
@@ -67,19 +65,6 @@ class Header extends Component {
                 {window.localStorage.getItem('placementusername')} <i className="fas fa-caret-down" />
                 {this.state.loginButton ?
                   <div className="Header-logout-link">
-                    <NavLink
-                      className="Header-logout-button display-xs"
-                      to="/portfolio"
-                    >
-                      <p>Portfolio</p><i className="fab fa-bitcoin" />
-                    </NavLink>
-                    <hr className="links-divider display-xs" />
-                    <NavLink
-                      className="Header-logout-button display-xs"
-                      to="/transfers"
-                    >
-                      <p>Transfers</p><i className="fas fa-exchange-alt" />
-                    </NavLink>
                     <hr className="links-divider display-xs" />
                     <button
                       className="Header-logout-button"
