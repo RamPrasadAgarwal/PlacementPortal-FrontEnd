@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Form from '../Form/form';
+import Textarea from 'react-textarea-autosize';
 import './company.css';
 
 
@@ -57,12 +58,12 @@ class Company extends Component {
     return (
       <div className="signup-body-div">
         <div className="editprofile-body">
-          <div className="profileForm">
+          <div className="company-form">
             <Form
               error={this.state.error}
               errorType={this.state.errortype}
               formHeading={`Hi! ${window.localStorage.getItem('placementusername')}, Please provide the Company details`}
-              buttonMessage="Login"
+              buttonMessage="Register Company"
               submit={(e) => { this.profileedit(e); }}
             >
               <input
@@ -71,7 +72,9 @@ class Company extends Component {
                 placeholder="Company Name"
                 required
               />
-              <textarea
+              <Textarea
+                maxRows={5}
+                minRows={5}
                 name="about"
                 placeholder="About the Company.."
                 required
@@ -103,85 +106,79 @@ class Company extends Component {
               <input
                 type="text"
                 name="salary"
-                placeholder="Salary(CTC)"
+                placeholder="Salary (CTC)"
                 required
               />
               <textarea
-				name="descript" 
-                placeholder="Job Description.." 
-                required >
-              </textarea>
-               <label style={{fontSize: "22px",paddingLeft: "40px"}}>Branch</label>
-               <label class="container">All
-  						<input 
-  						type="checkbox"
-                		name="branch"
-                		value="all"
-                		required />
-  						<span class="checkmark"></span>
-				</label>
-               <label class="container">Computer Science and Engineering
-  						<input 
-  						type="checkbox"
-                		name="branch"
-                		value="cse"
-                		required />
-  						<span class="checkmark"></span>
-				</label>
-               <label class="container">Information Science 
-  						<input 
-  						type="checkbox"
-                		name="branch"
-                		value="ise"
-                		required />
-  						<span class="checkmark"></span>
-				</label>
-               <label class="container">Mechanical Engineering
-  						<input 
-  						type="checkbox"
-                		name="branch"
-                		value="me"
-                		required />
-  						<span class="checkmark"></span>
-				</label>
-               <label class="container">Electronics Engineering
-  						<input 
-  						type="checkbox"
-                		name="branch"
-                		value="ec"
-                		required />
-  						<span class="checkmark"></span>
-				</label>
-               <label class="container">Electronics and Electrical Engineering
-  						<input 
-  						type="checkbox"
-                		name="branch"
-                		value="eee"
-                		required />
-  						<span class="checkmark"></span>
-				</label>
-               <label class="container">Industrial Production 
-  						<input 
-  						type="checkbox"
-                		name="branch"
-                		value="ip"
-                		required />
-  						<span class="checkmark"></span>
-				</label>
-             
-               
-              <select name="branch" placeholder="Branch" multiple>
-                <option disabled selected>Branch</option>
-                <option value="all">All</option>
-                <option value="cse">Computer Science and Engineering</option>
-                <option value="ise">Information Science and Engineering</option>
-                <option value="me">Mechanical Engineering</option>
-                <option value="ec">Electrical Engineering</option>
-                <option value="eee">Electrical and Electronic Engineering</option>
-                <option value="ip">Industrial Production</option>
-                <option value="cv">Civil Engineering</option>
-              </select>
->>>>>>> 8fc73f67921d84304d06b1c6a197de908966d047
+                name="descript"
+                placeholder="Job Description.."
+                required
+              />
+              <label >Branch</label>
+              <label className="container">All
+                <input
+                  type="checkbox"
+                  name="branch"
+                  value="all"
+                  required
+                />
+                <span className="checkmark" />
+              </label>
+              <label className="container">Computer Science and Engineering
+                <input
+                  type="checkbox"
+                  name="branch"
+                  value="cse"
+                  required
+                />
+                <span className="checkmark" />
+              </label>
+              <label className="container">Information Science
+                <input
+                  type="checkbox"
+                  name="branch"
+                  value="ise"
+                  required
+                />
+                <span className="checkmark" />
+              </label>
+              <label className="container">Mechanical Engineering
+                <input
+                  type="checkbox"
+                  name="branch"
+                  value="me"
+                  required
+                />
+                <span className="checkmark" />
+              </label>
+              <label className="container">Electronics Engineering
+                <input
+                  type="checkbox"
+                  name="branch"
+                  value="ec"
+                  required
+                />
+                <span className="checkmark" />
+              </label>
+              <label className="container">Electronics and Electrical Engineering
+                <input
+                  type="checkbox"
+                  name="branch"
+                  value="eee"
+                  required
+                />
+                <span className="checkmark" />
+              </label>
+              <label className="container">Industrial Production
+                <input
+                  type="checkbox"
+                  name="branch"
+                  value="ip"
+                  required
+                />
+                <span className="checkmark" />
+              </label>
+
               <input
                 type="text"
                 name="xmarks"
