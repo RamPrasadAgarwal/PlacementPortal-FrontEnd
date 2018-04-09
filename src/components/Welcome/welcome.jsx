@@ -73,7 +73,7 @@ class Welcome extends Component {
             window.localStorage.setItem('placementtoken', response.token);
             window.localStorage.setItem('placementusername', response.fullName);
             window.localStorage.setItem('placementloggedin', 'true');
-            this.props.history.push('/profile', { message: 'Registration Successfull! Please fill your academic details' });
+            this.props.history.push('/dashboard');
             break;
 
           case 409:

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Form from '../Form/form';
-import './admin.css';
+import './promote.css';
 
 class Welcome extends Component {
   constructor() {
