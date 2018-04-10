@@ -14,7 +14,7 @@ class Welcome extends Component {
 
   componentWillMount() {
     if (window.localStorage.getItem('placementloggedin') === 'true') {
-      // this.props.history.push('/dashboard');
+      this.props.history.push('/dashboard');
     }
   }
   registerUser(e) {
