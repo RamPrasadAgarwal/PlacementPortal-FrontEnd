@@ -77,7 +77,7 @@ class EditProfile extends Component {
       .then(console.log);
     this.setState({});
   }
- 
+
   render() {
     return (
       <div className="signup-body-div">
@@ -86,7 +86,7 @@ class EditProfile extends Component {
             <Form
               error={this.state.errorprofile}
               formHeading={`Hi! ${window.localStorage.getItem('placementusername')}, Please provide your academic details`}
-              buttonMessage="Login"
+              buttonMessage="Submit"
               submit={(e) => { this.profileedit(e); }}
             >
               <input
@@ -105,7 +105,7 @@ class EditProfile extends Component {
                 placeholder={this.state.profile.phone ? this.state.profile.phone : 'Contact Number (Without +91)'}
                 max="9999999999"
               />
-              <label style={{fontSize: "22px",paddingLeft:"40px"}} >Gender</label>
+              <label style={{ fontSize: '22px', paddingLeft: '40px' }} >Gender</label>
               <label className="container1">Male
                 <input
                   type="radio"
@@ -114,7 +114,7 @@ class EditProfile extends Component {
                   required
                 /> <span className="checkmark1" />
               </label>
-                <label className="container1">Female
+              <label className="container1">Female
                 <input
                   type="radio"
                   name="gender"
@@ -122,7 +122,7 @@ class EditProfile extends Component {
                   required
                 /> <span className="checkmark1" />
               </label>
-              <label style={{fontSize: "22px",paddingLeft:"40px"}} >Branch</label>
+              <label style={{ fontSize: '22px', paddingLeft: '40px' }} >Branch</label>
               <label className="container">Computer Science and Engineering
                 <input
                   type="checkbox"
