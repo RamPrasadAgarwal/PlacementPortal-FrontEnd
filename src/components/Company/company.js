@@ -10,7 +10,10 @@ class Company extends Component {
     this.state = {
       error: null,
       errortype: null,
+      checked:Array(7).fill(false),
+      string:""
     };
+    this.handleCheck=this.handleCheck.bind(this)
   }
   profileedit(e) {
     const authtoken = window.localStorage.getItem('placementtoken');
@@ -54,6 +57,45 @@ class Company extends Component {
       });
     this.setState({});
   }
+  handleCheck(e,i) {
+    if(e.target.checked)
+    	{
+    		if(e.target.value==="all")
+    		{	
+    			this.setState({
+    			checked: Array(7).fill(true)		
+    		})
+    		}
+    		else if(e.target.value===e.target.value)
+    		{
+    			
+    			 const checked = this.state.checked.slice();
+    				checked[i] = true;
+    				this.setState({checked: checked});		
+    	
+    		}
+    	}
+    else if(!e.target.checked)
+        	{
+    		if(e.target.value==="all")
+    		{	
+    			this.setState({
+    			checked: Array(7).fill(false)		
+    		})
+    		}
+    		else if(e.target.value===e.target.value)
+    		{
+    			
+    			 const checked = this.state.checked.slice();
+    				checked[i] = false;
+    				this.setState({checked: checked});		
+    	
+    		}
+    	}
+    		
+    
+ }
+  
   render() {
     return (
       <div className="signup-body-div">
@@ -114,66 +156,82 @@ class Company extends Component {
                 placeholder="Job Description.."
                 required
               />
-              <label >Branch</label>
+              <label style={{fontSize: "22px",paddingLeft:"40px"}} >Branch</label>
+              
               <label className="container">All
-                <input
+              <input
+              	  onChange={(e)=>this.handleCheck(e,0)}
                   type="checkbox"
                   name="branch"
                   value="all"
+                  checked={this.state.checked[0]}	
                   required
                 />
                 <span className="checkmark" />
+                
               </label>
               <label className="container">Computer Science and Engineering
                 <input
+                onChange={(e)=>this.handleCheck(e,1)}
                   type="checkbox"
                   name="branch"
                   value="cse"
-                  required
+                  checked={this.state.checked[1]}
+       			  required
                 />
                 <span className="checkmark" />
               </label>
               <label className="container">Information Science
                 <input
+                  onChange={(e)=>this.handleCheck(e,2)}
                   type="checkbox"
                   name="branch"
                   value="ise"
+                  checked={this.state.checked[2]}
                   required
                 />
                 <span className="checkmark" />
               </label>
               <label className="container">Mechanical Engineering
                 <input
+                 onChange={(e)=>this.handleCheck(e,3)}
                   type="checkbox"
                   name="branch"
                   value="me"
+                  checked={this.state.checked[3]}
                   required
                 />
                 <span className="checkmark" />
               </label>
               <label className="container">Electronics Engineering
                 <input
+                  onChange={(e)=>this.handleCheck(e,4)}
                   type="checkbox"
                   name="branch"
                   value="ec"
+                  checked={this.state.checked[4]}
                   required
                 />
                 <span className="checkmark" />
               </label>
               <label className="container">Electronics and Electrical Engineering
                 <input
+                  onChange={(e)=>this.handleCheck(e,5)}
                   type="checkbox"
                   name="branch"
                   value="eee"
+                  checked={this.state.checked[5]}
                   required
                 />
                 <span className="checkmark" />
               </label>
               <label className="container">Industrial Production
                 <input
+                  onChange={(e)=>this.handleCheck(e,6)}
                   type="checkbox"
                   name="branch"
                   value="ip"
+                  checked={this.state.checked[6]}
                   required
                 />
                 <span className="checkmark" />
@@ -193,11 +251,23 @@ class Company extends Component {
                 value=""
                 required
               />
-              <select name="history" placeholder="History">
-                <option disabled selected>History</option>
-                <option value="yes">Yes</option>
-                <option value="no">No</option>
-              </select>
+              <label style={{fontSize: "22px",paddingLeft:"40px"}} >History</label>
+              <label className="container1">Yes
+                <input
+                  type="radio"
+                  name="history"
+                  value="yes"
+                  required
+                /> <span className="checkmark1" />
+              </label>
+                <label className="container1">No
+                <input
+                  type="radio"
+                  name="history"
+                  value="no"
+                  required
+                /> <span className="checkmark1" />
+              </label>
               <input
                 type="text"
                 name="cgpa"

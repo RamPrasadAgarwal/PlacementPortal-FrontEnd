@@ -77,6 +77,7 @@ class EditProfile extends Component {
       .then(console.log);
     this.setState({});
   }
+ 
   render() {
     return (
       <div className="signup-body-div">
@@ -104,21 +105,78 @@ class EditProfile extends Component {
                 placeholder={this.state.profile.phone ? this.state.profile.phone : 'Contact Number (Without +91)'}
                 max="9999999999"
               />
-              <select name="sex" placeholder="Sex" value={this.state.profile.sex}>
-                <option disabled selected>Gender</option>
-                <option value="Male">Male</option>
-                <option value="Male">Female</option>
-              </select>
-              <select name="branch" placeholder="Branch" value={this.state.profile.branch}>
-                <option disabled selected>Branch</option>
-                <option value="cse">Computer Science and Engineering</option>
-                <option value="ise">Information Science and Engineering</option>
-                <option value="me">Mechanical Engineering</option>
-                <option value="ec">Electrical Engineering</option>
-                <option value="eee">Electrical and Electronic Engineering</option>
-                <option value="ip">Industrial Production</option>
-                <option value="cv">Civil Engineering</option>
-              </select>
+              <label style={{fontSize: "22px",paddingLeft:"40px"}} >Gender</label>
+              <label className="container1">Male
+                <input
+                  type="radio"
+                  name="gender"
+                  value="male"
+                  required
+                /> <span className="checkmark1" />
+              </label>
+                <label className="container1">Female
+                <input
+                  type="radio"
+                  name="gender"
+                  value="female"
+                  required
+                /> <span className="checkmark1" />
+              </label>
+              <label style={{fontSize: "22px",paddingLeft:"40px"}} >Branch</label>
+              <label className="container">Computer Science and Engineering
+                <input
+                  type="checkbox"
+                  name="branch"
+                  value="cse"
+                  required
+                />
+                <span className="checkmark" />
+              </label>
+              <label className="container">Information Science
+                <input
+                  type="checkbox"
+                  name="branch"
+                  value="ise"
+                  required
+                />
+                <span className="checkmark" />
+              </label>
+              <label className="container">Mechanical Engineering
+                <input
+                  type="checkbox"
+                  name="branch"
+                  value="me"
+                  required
+                />
+                <span className="checkmark" />
+              </label>
+              <label className="container">Electronics Engineering
+                <input
+                  type="checkbox"
+                  name="branch"
+                  value="ec"
+                  required
+                />
+                <span className="checkmark" />
+              </label>
+              <label className="container">Electronics and Electrical Engineering
+                <input
+                  type="checkbox"
+                  name="branch"
+                  value="eee"
+                  required
+                />
+                <span className="checkmark" />
+              </label>
+              <label className="container">Industrial Production
+                <input
+                  type="checkbox"
+                  name="branch"
+                  value="ip"
+                  required
+                />
+                <span className="checkmark" />
+              </label>
               <Textarea
                 maxRows={5}
                 minRows={5}
