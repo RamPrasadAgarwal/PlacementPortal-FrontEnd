@@ -10,10 +10,9 @@ class Company extends Component {
     this.state = {
       error: null,
       errortype: null,
-      checked:Array(7).fill(false),
-      string:""
+      checked: Array(7).fill(false),
     };
-    this.handleCheck=this.handleCheck.bind(this)
+    this.handleCheck = this.handleCheck.bind(this);
   }
   profileedit(e) {
     const authtoken = window.localStorage.getItem('placementtoken');
@@ -57,45 +56,30 @@ class Company extends Component {
       });
     this.setState({});
   }
-  handleCheck(e,i) {
-    if(e.target.checked)
-    	{
-    		if(e.target.value==="all")
-    		{	
-    			this.setState({
-    			checked: Array(7).fill(true)		
-    		})
-    		}
-    		else if(e.target.value===e.target.value)
-    		{
-    			
-    			 const checked = this.state.checked.slice();
-    				checked[i] = true;
-    				this.setState({checked: checked});		
-    	
-    		}
-    	}
-    else if(!e.target.checked)
-        	{
-    		if(e.target.value==="all")
-    		{	
-    			this.setState({
-    			checked: Array(7).fill(false)		
-    		})
-    		}
-    		else if(e.target.value===e.target.value)
-    		{
-    			
-    			 const checked = this.state.checked.slice();
-    				checked[i] = false;
-    				this.setState({checked: checked});		
-    	
-    		}
-    	}
-    		
-    
- }
-  
+  handleCheck(e, i) {
+    if (e.target.checked) {
+      if (e.target.value === 'all') {
+        this.setState({
+          checked: Array(7).fill(true),
+        });
+      } else {
+        const checked = this.state.checked.slice();
+        checked[i] = true;
+        this.setState({ checked });
+      }
+    } else if (!e.target.checked) {
+      if (e.target.value === 'all') {
+        this.setState({
+          checked: Array(7).fill(false),
+        });
+      } else {
+        const checked = this.state.checked.slice();
+        checked[i] = false;
+        this.setState({ checked });
+      }
+    }
+  }
+
   render() {
     return (
       <div className="signup-body-div">
@@ -151,39 +135,41 @@ class Company extends Component {
                 placeholder="Salary (CTC)"
                 required
               />
-              <textarea
+              <Textarea
+                maxRows={5}
+                minRows={5}
                 name="descript"
                 placeholder="Job Description.."
                 required
               />
-              <label style={{fontSize: "22px",paddingLeft:"40px"}} >Branch</label>
-              
+              <label style={{ fontSize: '22px', paddingLeft: '40px' }} >Branch</label>
+
               <label className="container">All
-              <input
-              	  onChange={(e)=>this.handleCheck(e,0)}
+                <input
+                  onChange={e => this.handleCheck(e, 0)}
                   type="checkbox"
                   name="branch"
                   value="all"
-                  checked={this.state.checked[0]}	
+                  checked={this.state.checked[0]}
                   required
                 />
                 <span className="checkmark" />
-                
+
               </label>
               <label className="container">Computer Science and Engineering
                 <input
-                onChange={(e)=>this.handleCheck(e,1)}
+                  onChange={e => this.handleCheck(e, 1)}
                   type="checkbox"
                   name="branch"
                   value="cse"
                   checked={this.state.checked[1]}
-       			  required
+                  required
                 />
                 <span className="checkmark" />
               </label>
               <label className="container">Information Science
                 <input
-                  onChange={(e)=>this.handleCheck(e,2)}
+                  onChange={e => this.handleCheck(e, 2)}
                   type="checkbox"
                   name="branch"
                   value="ise"
@@ -194,7 +180,7 @@ class Company extends Component {
               </label>
               <label className="container">Mechanical Engineering
                 <input
-                 onChange={(e)=>this.handleCheck(e,3)}
+                  onChange={e => this.handleCheck(e, 3)}
                   type="checkbox"
                   name="branch"
                   value="me"
@@ -205,7 +191,7 @@ class Company extends Component {
               </label>
               <label className="container">Electronics Engineering
                 <input
-                  onChange={(e)=>this.handleCheck(e,4)}
+                  onChange={e => this.handleCheck(e, 4)}
                   type="checkbox"
                   name="branch"
                   value="ec"
@@ -216,7 +202,7 @@ class Company extends Component {
               </label>
               <label className="container">Electronics and Electrical Engineering
                 <input
-                  onChange={(e)=>this.handleCheck(e,5)}
+                  onChange={e => this.handleCheck(e, 5)}
                   type="checkbox"
                   name="branch"
                   value="eee"
@@ -227,7 +213,7 @@ class Company extends Component {
               </label>
               <label className="container">Industrial Production
                 <input
-                  onChange={(e)=>this.handleCheck(e,6)}
+                  onChange={e => this.handleCheck(e, 6)}
                   type="checkbox"
                   name="branch"
                   value="ip"
@@ -251,7 +237,7 @@ class Company extends Component {
                 value=""
                 required
               />
-              <label style={{fontSize: "22px",paddingLeft:"40px"}} >History</label>
+              <label style={{ fontSize: '22px', paddingLeft: '40px' }} >History</label>
               <label className="container1">Yes
                 <input
                   type="radio"
@@ -260,7 +246,7 @@ class Company extends Component {
                   required
                 /> <span className="checkmark1" />
               </label>
-                <label className="container1">No
+              <label className="container1">No
                 <input
                   type="radio"
                   name="history"
