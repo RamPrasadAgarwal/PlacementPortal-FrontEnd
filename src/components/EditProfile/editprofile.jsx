@@ -66,7 +66,7 @@ class EditProfile extends Component {
       mutebacklog: data.get('mutebacklog'),
       clearbacklog: data.get('clearbacklog'),
       currentbacklog: data.get('currentbacklog'),
-      historybacklog: data.get('historybacklog'),
+      historybacklog: data.get('mutebacklog') + data.get('clearbacklog') ? 1 : 0,
     };
     fetch('/profile', {
       method: 'POST',
@@ -79,6 +79,7 @@ class EditProfile extends Component {
   }
 
   render() {
+    console.log(this.state.profile.currentbacklog);
     return (
       <div className="signup-body-div">
         <div className="editprofile-body">
@@ -328,7 +329,8 @@ class EditProfile extends Component {
               <input
                 type="number"
                 name="currentbacklog"
-                placeholder={this.state.profile.currentbacklog >= 0 ? this.state.profile.currentbacklog : 'Current Arrears'}
+                placeholder="Current Arrears"
+                defaultValue={this.state.profile.currentbacklog >= 0 ? this.state.profile.currentbacklog : ''}
               />
             </Form>
           </div>
