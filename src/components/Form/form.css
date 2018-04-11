@@ -52,11 +52,13 @@
     box-sizing: border-box;
     height: 50px;
 }
+
 .container {
   color: white;
   display: block;
   position: relative;
   padding-left: 80px;
+  padding-bottom: 10px;
   /*margin-bottom: 12px;*/
   cursor: pointer;
   font-size: 22px;

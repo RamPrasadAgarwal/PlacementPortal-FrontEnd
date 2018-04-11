@@ -106,7 +106,7 @@ class EditProfile extends Component {
                 placeholder={this.state.profile.phone ? this.state.profile.phone : 'Contact Number (Without +91)'}
                 max="9999999999"
               />
-              <label style={{ fontSize: '22px', paddingLeft: '40px' }} >Gender</label>
+              <label style={{ fontSize: '22px', paddingLeft: '5%' }} >Gender</label><br/><br/>
               <label className="container1">Male
                 <input
                   type="radio"
@@ -123,60 +123,60 @@ class EditProfile extends Component {
                   required
                 /> <span className="checkmark1" />
               </label>
-              <label style={{ fontSize: '22px', paddingLeft: '40px' }} >Branch</label>
-              <label className="container">Computer Science and Engineering
+              <label style={{ fontSize: '22px', paddingLeft: '5%' }} >Branch</label><br/><br/>
+              <label className="container1">Computer Science and Engineering
                 <input
-                  type="checkbox"
+                  type="radio"
                   name="branch"
                   value="cse"
                   required
                 />
-                <span className="checkmark" />
+                <span className="checkmark1" />
               </label>
-              <label className="container">Information Science
+              <label className="container1">Information Science
                 <input
-                  type="checkbox"
+                  type="radio"
                   name="branch"
                   value="ise"
                   required
                 />
-                <span className="checkmark" />
+                <span className="checkmark1" />
               </label>
-              <label className="container">Mechanical Engineering
+              <label className="container1">Mechanical Engineering
                 <input
-                  type="checkbox"
+                  type="radio"
                   name="branch"
                   value="me"
                   required
                 />
-                <span className="checkmark" />
+                <span className="checkmark1" />
               </label>
-              <label className="container">Electronics Engineering
+              <label className="container1">Electronics Engineering
                 <input
-                  type="checkbox"
+                  type="radio"
                   name="branch"
                   value="ec"
                   required
                 />
-                <span className="checkmark" />
+                <span className="checkmark1" />
               </label>
-              <label className="container">Electronics and Electrical Engineering
+              <label className="container1">Electronics and Electrical Engineering
                 <input
-                  type="checkbox"
+                  type="radio"
                   name="branch"
                   value="eee"
                   required
                 />
-                <span className="checkmark" />
+                <span className="checkmark1" />
               </label>
-              <label className="container">Industrial Production
+              <label className="container1">Industrial Production
                 <input
-                  type="checkbox"
+                  type="radio"
                   name="branch"
                   value="ip"
                   required
                 />
-                <span className="checkmark" />
+                <span className="checkmark1" />
               </label>
               <Textarea
                 maxRows={5}
@@ -237,6 +237,7 @@ class EditProfile extends Component {
                 placeholder={this.state.profile.cgpa1 >= 0 ? this.state.profile.cgpa1 : 'Semester 1 CGPA'}
               />
               <input
+                class="small1"
                 type="number"
                 name="credit1"
                 placeholder={this.state.profile.credit1 >= 0 ? this.state.profile.credit1 : 'Credits Earned in Semester 1'}
