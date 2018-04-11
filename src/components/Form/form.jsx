@@ -11,16 +11,16 @@ class Form extends Component {
           <div className="form-padding">
             <div className="form-heading">
               {this.props.formHeading}
-            </div><br />
-            {this.props.error ?
-              <ErrorMessage
-                message={this.props.error}
-                messageType={this.props.errorType}
-              />
+            </div>
+            <br />
+          </div>
+          <div className="form-children-div"> {this.props.error ?
+            <ErrorMessage
+              message={this.props.error}
+              messageType={this.props.errorType}
+            />
                 : ''
               }
-          </div>
-          <div className="form-children-div">
             {this.props.children}
           </div>
           <div className="form-submit">
