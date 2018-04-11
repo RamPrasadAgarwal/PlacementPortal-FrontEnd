@@ -3,7 +3,6 @@ import Form from '../Form/form';
 import Textarea from 'react-textarea-autosize';
 import './company.css';
 
-
 class Company extends Component {
   constructor(props) {
     super(props);
@@ -19,22 +18,30 @@ class Company extends Component {
     e.preventDefault();
     const data = new FormData(e.target);
     const payload = {
-      name: data.get('cname'),
+      name: data.get('name'),
       about: data.get('about'),
       position: data.get('position'),
       location: data.get('location'),
       test: data.get('testdate'),
       interview: data.get('interviewdate'),
       ctc: data.get('salary'),
-      jd: data.get('descript'),
+      jd: data.get('jd'),
+      cse: data.get('branch') === 'all' || data.get('branch' === 'cse'),
+      ise: data.get('branch') === 'all' || data.get('branch' === 'ise'),
+      ec: data.get('branch') === 'all' || data.get('branch' === 'ec'),
+      me: data.get('branch') === 'all' || data.get('branch' === 'me'),
+      eee: data.get('branch') === 'all' || data.get('branch' === 'eee'),
+      ip: data.get('branch') === 'all' || data.get('branch' === 'ip'),
+      cv: data.get('branch') === 'all' || data.get('branch' === 'cv'),
       branch: data.get('branch'),
       xmarks: data.get('xmarks'),
       xiimarks: data.get('xiimarks'),
       history: data.get('history'),
       cgpa: data.get('cgpa'),
       venue: data.get('venue'),
+      deadline: data.get('deadline'),
     };
-    fetch('/comapny', {
+    fetch('/company', {
       method: 'POST',
       headers: { authtoken },
       body: JSON.stringify(payload),
@@ -54,7 +61,6 @@ class Company extends Component {
           error: response.message,
         });
       });
-    this.setState({});
   }
   handleCheck(e, i) {
     if (e.target.checked) {
@@ -62,24 +68,21 @@ class Company extends Component {
         this.setState({
           checked: Array(7).fill(true),
         });
-      }else {
+      } else {
         const checked = this.state.checked.slice();
         checked[i] = true;
         this.setState({ checked });
-        var count=0;
-      	for (var i = 0; i <7; i++) {
-      	  if (checked[i]===true&&checked[0]!==true) 
-      	   {
-      		  count++;
+        let count = 0;
+      	for (let j = 0; j < 7; j += 1) {
+      	  if (checked[j] === true && checked[0] !== true) {
+      		  count += 1;
       	   }
       	}
-      	if(count==6)
-      	{
+      	if (count === 6) {
       	  this.setState({
-          checked: Array(7).fill(true),
-        });
+            checked: Array(7).fill(true),
+          });
       	}
-      		
       }
     } else if (!e.target.checked) {
       if (e.target.value === 'all') {
@@ -90,18 +93,16 @@ class Company extends Component {
         const checked = this.state.checked.slice();
         checked[i] = false;
         this.setState({ checked });
-        for (var i = 0; i <7; i++) {
-      	  if (checked[i]===false&&checked[0]===true) 
-      	   {
-      		  
-      			checked[0] = false;
-        		this.setState({ checked });
-      		}
-      	 }
-      	}
+        for (let j = 0; j < 7; j += 1) {
+          if (checked[j] === false && checked[0] === true) {
+            checked[0] = false;
+            this.setState({ checked });
+          }
+        }
       }
     }
-  
+  }
+
 
   render() {
     return (
@@ -117,7 +118,7 @@ class Company extends Component {
             >
               <input
                 type="text"
-                name="cname"
+                name="name"
                 placeholder="Company Name"
                 required
               />
@@ -126,18 +127,6 @@ class Company extends Component {
                 minRows={5}
                 name="about"
                 placeholder="About the Company.."
-                required
-              />
-              <input
-                type="text"
-                name="testdate"
-                placeholder="Test Date (dd/mm/yyyy)"
-                required
-              />
-              <input
-                type="text"
-                name="interviewdate"
-                placeholder="Interview Date (dd/mm/yyyy)"
                 required
               />
               <input
@@ -161,12 +150,11 @@ class Company extends Component {
               <Textarea
                 maxRows={5}
                 minRows={5}
-                name="descript"
+                name="jd"
                 placeholder="Job Description.."
                 required
               />
-              <label style={{ fontSize: '22px', paddingLeft: '5%' }} >Branch</label><br/><br/>
-
+              <label style={{ fontSize: '22px', paddingLeft: '5%' }} >Branch</label><br /><br />
               <label className="container">All
                 <input
                   onChange={e => this.handleCheck(e, 0)}
@@ -174,10 +162,8 @@ class Company extends Component {
                   name="branch"
                   value="all"
                   checked={this.state.checked[0]}
-                  required
                 />
                 <span className="checkmark" />
-
               </label>
               <label className="container">Computer Science and Engineering
                 <input
@@ -186,7 +172,6 @@ class Company extends Component {
                   name="branch"
                   value="cse"
                   checked={this.state.checked[1]}
-                  required
                 />
                 <span className="checkmark" />
               </label>
@@ -197,7 +182,6 @@ class Company extends Component {
                   name="branch"
                   value="ise"
                   checked={this.state.checked[2]}
-                  required
                 />
                 <span className="checkmark" />
               </label>
@@ -208,7 +192,6 @@ class Company extends Component {
                   name="branch"
                   value="me"
                   checked={this.state.checked[3]}
-                  required
                 />
                 <span className="checkmark" />
               </label>
@@ -219,7 +202,6 @@ class Company extends Component {
                   name="branch"
                   value="ec"
                   checked={this.state.checked[4]}
-                  required
                 />
                 <span className="checkmark" />
               </label>
@@ -230,7 +212,6 @@ class Company extends Component {
                   name="branch"
                   value="eee"
                   checked={this.state.checked[5]}
-                  required
                 />
                 <span className="checkmark" />
               </label>
@@ -241,26 +222,24 @@ class Company extends Component {
                   name="branch"
                   value="ip"
                   checked={this.state.checked[6]}
-                  required
                 />
                 <span className="checkmark" />
               </label>
 
               <input
-                type="text"
+                type="number"
                 name="xmarks"
                 placeholder="10th Percentage"
-                value=""
+                step="10"
                 required
               />
               <input
                 type="text"
                 name="xiimarks"
                 placeholder="12th Percentage"
-                value=""
                 required
               />
-              <label style={{ fontSize: '22px', paddingLeft: '5%' }} >History</label><br/><br/>
+              <label style={{ fontSize: '22px', paddingLeft: '5%' }} >History</label><br /><br />
               <label className="container1">Yes
                 <input
                   type="radio"
@@ -281,10 +260,31 @@ class Company extends Component {
                 type="text"
                 name="cgpa"
                 placeholder="CGPA"
-                value=""
                 required
               />
-
+              <input
+                type="text"
+                name="testdate"
+                placeholder="Test Date (dd/mm/yyyy)"
+                required
+              />
+              <input
+                type="text"
+                name="interviewdate"
+                placeholder="Interview Date (dd/mm/yyyy)"
+                required
+              /><input
+                type="text"
+                name="venue"
+                placeholder="Interview Venue"
+                required
+              />
+              <input
+                type="text"
+                name="venue"
+                placeholder="Last Day to Accpet Forms"
+                required
+              />
             </Form>
           </div>
         </div>
