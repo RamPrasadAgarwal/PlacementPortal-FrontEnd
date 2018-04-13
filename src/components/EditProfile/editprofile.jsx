@@ -9,7 +9,7 @@ class EditProfile extends Component {
     super(props);
     this.state = {
       errorprofile: null,
-      profile: [],
+      profile: null,
     };
     this.fetchProfileDetails();
   }
@@ -79,264 +79,299 @@ class EditProfile extends Component {
   }
 
   render() {
-    console.log(this.state.profile.currentbacklog);
-    return (
-      <div className="signup-body-div">
-        <div className="editprofile-body">
-          <div className="profileForm">
-            <Form
-              error={this.state.errorprofile}
-              formHeading={`Hi! ${window.localStorage.getItem('placementusername')}, Please provide your academic details`}
-              buttonMessage="Submit"
-              submit={(e) => { this.profileedit(e); }}
-            >
-              <input
-                type="email"
-                name="email"
-                placeholder={this.state.profile.email ? this.state.profile.email : 'Email'}
-              />
-              <input
-                type="text"
-                name="dob"
-                placeholder={this.state.profile.dob ? this.state.profile.dob : 'Date of Birth (dd/mm/yyyy)'}
-              />
-              <input
-                type="number"
-                name="phone"
-                placeholder={this.state.profile.phone ? this.state.profile.phone : 'Contact Number (Without +91)'}
-                max="9999999999"
-              />
-              <label style={{ fontSize: '22px', paddingLeft: '40px' }} >Gender</label>
-              <label className="container1">Male
+    console.log(this.state.profile);
+    if (this.state.profile !== null) {
+      return (
+        <div className="signup-body-div">
+          <div className="editprofile-body">
+            <div className="profileForm">
+              <Form
+                error={this.state.errorprofile}
+                formHeading={`Hi! ${window.localStorage.getItem('placementusername')}, Please provide your academic details`}
+                buttonMessage="Submit"
+                submit={(e) => { this.profileedit(e); }}
+              >
                 <input
-                  type="radio"
-                  name="gender"
-                  value="male"
-                  required
-                /> <span className="checkmark1" />
-              </label>
-              <label className="container1">Female
-                <input
-                  type="radio"
-                  name="gender"
-                  value="female"
-                  required
-                /> <span className="checkmark1" />
-              </label>
-              <label style={{ fontSize: '22px', paddingLeft: '40px' }} >Branch</label>
-              <label className="container">Computer Science and Engineering
-                <input
-                  type="checkbox"
-                  name="branch"
-                  value="cse"
-                  required
+                  type="email"
+                  name="email"
+                  placeholder="Email"
+                  defaultValue={this.state.profile.email !== null ? this.state.profile.email : ''}
+                  tooltip="hey"
                 />
-                <span className="checkmark" />
-              </label>
-              <label className="container">Information Science
                 <input
-                  type="checkbox"
-                  name="branch"
-                  value="ise"
-                  required
+                  type="text"
+                  name="dob"
+                  placeholder="Date of Birth (dd/mm/yyyy)"
+                  defaultValue={this.state.profile.dob ? this.state.profile.dob : ''}
                 />
-                <span className="checkmark" />
-              </label>
-              <label className="container">Mechanical Engineering
                 <input
-                  type="checkbox"
-                  name="branch"
-                  value="me"
-                  required
+                  type="number"
+                  name="phone"
+                  placeholder="Contact Number (Without +91)"
+                  defaultValue={this.state.profile.phone ? this.state.profile.phone : ''}
+                  max="9999999999"
                 />
-                <span className="checkmark" />
-              </label>
-              <label className="container">Electronics Engineering
-                <input
-                  type="checkbox"
-                  name="branch"
-                  value="ec"
-                  required
-                />
-                <span className="checkmark" />
-              </label>
-              <label className="container">Electronics and Electrical Engineering
-                <input
-                  type="checkbox"
-                  name="branch"
-                  value="eee"
-                  required
-                />
-                <span className="checkmark" />
-              </label>
-              <label className="container">Industrial Production
-                <input
-                  type="checkbox"
-                  name="branch"
-                  value="ip"
-                  required
-                />
-                <span className="checkmark" />
-              </label>
-              <Textarea
-                maxRows={5}
-                minRows={5}
-                name="address"
-                placeholder={this.state.profile.address ? this.state.profile.address : 'Address'}
-              />
-              <br />
 
-              <input
-                type="text"
-                name="xinstitute"
-                placeholder={this.state.profile.xinstitute ? this.state.profile.xinstitute : 'Institution Attended in 10th Std'}
-              />
-              <input
-                type="text"
-                name="xboard"
-                placeholder={this.state.profile.xboard ? this.state.profile.xboard : '10th Board'}
-              />
-              <input
-                type="text"
-                name="xmarks"
-                placeholder={this.state.profile.xmarks >= 0 ? this.state.profile.xmarks : '10th Marks'}
-              />
-              <input
-                type="number"
-                name="xyear"
-                placeholder={this.state.profile.xyear >= 0 ? this.state.profile.xyear : '10th Passing Year'}
-              />
-              <input
-                type="text"
-                name="xiiinstitute"
-                placeholder={this.state.profile.xiiinstitute ? this.state.profile.xiiinstitute : 'Institution Attended in 12th Std'}
-              />
-              <input
-                type="text"
-                name="xiiboard"
-                placeholder={this.state.profile.xiiboard ? this.state.profile.xiiboard : '12th Board'}
-              />
-              <input
-                type="text"
-                name="xiimarks"
-                placeholder={this.state.profile.xiimarks >= 0 ? this.state.profile.xiimarks : '12th Marks'}
-              />
-              <input
-                type="number"
-                name="xiiyear"
-                placeholder={this.state.profile.xiiyear ? this.state.profile.xiiyear : '12th Passing Year'}
-              />
-              <input
-                type="number"
-                name="cetrank"
-                placeholder={this.state.profile.cetrank >= 0 ? this.state.profile.cetrank : 'CET Rank'}
-              />
-              <input
-                type="text"
-                name="cgpa1"
-                placeholder={this.state.profile.cgpa1 >= 0 ? this.state.profile.cgpa1 : 'Semester 1 CGPA'}
-              />
-              <input
-                type="number"
-                name="credit1"
-                placeholder={this.state.profile.credit1 >= 0 ? this.state.profile.credit1 : 'Credits Earned in Semester 1'}
-              />
-              <input
-                type="text"
-                name="cgpa2"
-                placeholder={this.state.profile.cgpa2 >= 0 ? this.state.profile.cgpa2 : 'Semester 2 CGPA'}
-              />
-              <input
-                type="number"
-                name="credit2"
-                placeholder={this.state.profile.credit2 >= 0 ? this.state.profile.credit2 : 'Credits Earned in Semester 2'}
-              />
-              <input
-                type="text"
-                name="cgpa3"
-                placeholder={this.state.profile.cgpa3 >= 0 ? this.state.profile.cgpa3 : 'Semester 3 CGPA'}
-              />
-              <input
-                type="number"
-                name="credit3"
-                placeholder={this.state.profile.credit3 >= 0 ? this.state.profile.credit3 : 'Credits Earned in Semester 3'}
-              />
-              <input
-                type="text"
-                name="cgpa4"
-                placeholder={this.state.profile.cgpa4 >= 0 ? this.state.profile.cgpa4 : 'Semester 4 CGPA'}
-              />
-              <input
-                type="number"
-                name="credit4"
-                placeholder={this.state.profile.credit4 >= 0 ? this.state.profile.credit4 : 'Credits Earned in Semester 4'}
-              />
-              <input
-                type="text"
-                name="cgpa5"
-                placeholder={this.state.profile.cgpa5 >= 0 ? this.state.profile.cgpa5 : 'Semester 5 CGPA'}
-              />
-              <input
-                type="number"
-                name="credit5"
-                placeholder={this.state.profile.credit5 >= 0 ? this.state.profile.credit5 : 'Credits Earned in Semester 5'}
-              />
-              <input
-                type="text"
-                name="cgpa6"
-                placeholder={this.state.profile.cgpa6 >= 0 ? this.state.profile.cgpa6 : 'Semester 6 CGPA'}
-              />
-              <input
-                type="number"
-                name="credit6"
-                placeholder={this.state.profile.credit6 >= 0 ? this.state.profile.credit6 : 'Credits Earned in Semester 6'}
-              />
-              <input
-                type="text"
-                name="cgpa7"
-                placeholder={this.state.profile.cgpa7 >= 0 ? this.state.profile.cgpa7 : 'Semester 7 CGPA'}
-              />
-              <input
-                type="number"
-                name="credit7"
-                placeholder={this.state.profile.credit7 >= 0 ? this.state.profile.credit7 : 'Credits Earned in Semester 7'}
-              />
-              <input
-                type="text"
-                name="cgpa8"
-                placeholder={this.state.profile.cgpa8 >= 0 ? this.state.profile.cgpa8 : 'Semester 8 CGPA'}
-              />
-              <input
-                type="number"
-                name="credit8"
-                placeholder={this.state.profile.credit8 >= 0 ? this.state.profile.credit8 : 'Credits Earned in Semester 8'}
-              />
-              <input
-                type="number"
-                name="totalcredit"
-                placeholder={this.state.profile.totalcredit >= 0 ? this.state.profile.totalcredit : 'Total Credits Earned'}
-              />
-              <input
-                type="number"
-                name="mutebacklog"
-                placeholder={this.state.profile.mutebacklog >= 0 ? this.state.profile.mutebacklog : 'No of Subjects Cleared In Mute'}
-              />
-              <input
-                type="number"
-                name="clearbacklog"
-                placeholder={this.state.profile.clearbacklog >= 0 ? this.state.profile.clearbacklog : 'Cleared Arrears'}
-              />
-              <input
-                type="number"
-                name="currentbacklog"
-                placeholder="Current Arrears"
-                defaultValue={this.state.profile.currentbacklog >= 0 ? this.state.profile.currentbacklog : ''}
-              />
-            </Form>
+                <label style={{ fontSize: '22px', paddingLeft: '40px' }} >Gender</label>
+                <label className="container1">Male
+                  <input
+                    type="radio"
+                    name="sex"
+                    value="male"
+                    defaultChecked={this.state.profile.sex === 'male'}
+                    required
+                  /> <span className="checkmark1" />
+                </label>
+                <label className="container1">Female
+                  <input
+                    type="radio"
+                    name="sex"
+                    defaultChecked={this.state.profile.sex === 'female'}
+                    value="female"
+                    required
+                  /> <span className="checkmark1" />
+                </label>
+
+                <label style={{ fontSize: '22px', paddingLeft: '40px' }} >Branch</label>
+                <label className="container">Computer Science and Engineering
+                  <input
+                    type="checkbox"
+                    name="branch"
+                    value="cse"
+                  />
+                  <span className="checkmark" />
+                </label>
+                <label className="container">Information Science
+                  <input
+                    type="checkbox"
+                    name="branch"
+                    value="ise"
+                  />
+                  <span className="checkmark" />
+                </label>
+                <label className="container">Mechanical Engineering
+                  <input
+                    type="checkbox"
+                    name="branch"
+                    value="me"
+                  />
+                  <span className="checkmark" />
+                </label>
+                <label className="container">Electronics Engineering
+                  <input
+                    type="checkbox"
+                    name="branch"
+                    value="ec"
+                  />
+                  <span className="checkmark" />
+                </label>
+                <label className="container">Electronics and Electrical Engineering
+                  <input
+                    type="checkbox"
+                    name="branch"
+                    value="eee"
+                  />
+                  <span className="checkmark" />
+                </label>
+                <label className="container">Industrial Production
+                  <input
+                    type="checkbox"
+                    name="branch"
+                    value="ip"
+                  />
+                  <span className="checkmark" />
+                </label>
+                <Textarea
+                  maxRows={5}
+                  minRows={5}
+                  name="address"
+                  placeholder="Address"
+                  defaultValue={this.state.profile.address ? this.state.profile.address : ''}
+                />
+                <br />
+
+                <input
+                  type="text"
+                  name="xinstitute"
+                  placeholder="Institution Attended in 10th Std"
+                  defaultValue={this.state.profile.xinstitute ? this.state.profile.xinstitute : ''}
+                />
+                <input
+                  type="text"
+                  name="xboard"
+                  placeholder="10th Board"
+                  defaultValue={this.state.profile.xboard ? this.state.profile.xboard : ''}
+                />
+                <input
+                  type="text"
+                  name="xmarks"
+                  placeholder="10th Marks"
+                  defaultValue={this.state.profile.xmarks >= 0 ? this.state.profile.xmarks : ''}
+                />
+                <input
+                  type="number"
+                  name="xyear"
+                  placeholder="10th Passing Year"
+                  defaultValue={this.state.profile.xyear >= 0 ? this.state.profile.xyear : ''}
+                />
+                <input
+                  type="text"
+                  name="xiiinstitute"
+                  placeholder="Institution Attended in 12th Std"
+                  defaultValue={this.state.profile.xiiinstitute ? this.state.profile.xiiinstitute : ''}
+                />
+                <input
+                  type="text"
+                  name="xiiboard"
+                  placeholder="12th Board"
+                  defaultValue={this.state.profile.xiiboard ? this.state.profile.xiiboard : ''}
+                />
+                <input
+                  type="text"
+                  name="xiimarks"
+                  placeholder="12th Marks"
+                  defaultValue={this.state.profile.xiimarks >= 0 ? this.state.profile.xiimarks : ''}
+                />
+                <input
+                  type="number"
+                  name="xiiyear"
+                  placeholder="12th Passing Year"
+                  defaultValue={this.state.profile.xiiyear >= 0 ? this.state.profile.xiiyear : ''}
+                />
+                <input
+                  type="number"
+                  name="cetrank"
+                  placeholder="CET Rank"
+                  defaultValue={this.state.profile.cetrank >= 0 ? this.state.profile.cetrank : ''}
+                />
+                <input
+                  type="text"
+                  name="cgpa1"
+                  placeholder="Semester 1 CGPA"
+                  defaultValue={this.state.profile.cgpa1 >= 0 ? this.state.profile.cgpa1 : 'Semester 1 CGPA'}
+                />
+                <input
+                  type="number"
+                  name="credit1"
+                  placeholder="Credits Earned in Semester 1"
+                  defaultValue={this.state.profile.credit1 >= 0 ? this.state.profile.credit1 : 'Credits Earned in Semester 1'}
+                />
+                <input
+                  type="text"
+                  name="cgpa2"
+                  placeholder="Semester 2 CGPA"
+                  defaultValue={this.state.profile.cgpa2 >= 0 ? this.state.profile.cgpa2 : 'Semester 2 CGPA'}
+                />
+                <input
+                  type="number"
+                  name="credit2"
+                  placeholder="Credits Earned in Semester 2"
+                  defaultValue={this.state.profile.credit2 >= 0 ? this.state.profile.credit2 : 'Credits Earned in Semester 2'}
+                />
+                <input
+                  type="text"
+                  name="cgpa3"
+                  placeholder="Semester 3 CGPA"
+                  defaultValue={this.state.profile.cgpa3 >= 0 ? this.state.profile.cgpa3 : 'Semester 3 CGPA'}
+                />
+                <input
+                  type="number"
+                  name="credit3"
+                  placeholder="Credits Earned in Semester 3"
+                  defaultValue={this.state.profile.credit3 >= 0 ? this.state.profile.credit3 : 'Credits Earned in Semester 3'}
+                />
+                <input
+                  type="text"
+                  name="cgpa4"
+                  placeholder="Semester 4 CGPA"
+                  defaultValue={this.state.profile.cgpa4 >= 0 ? this.state.profile.cgpa4 : 'Semester 4 CGPA'}
+                />
+                <input
+                  type="number"
+                  name="credit4"
+                  placeholder="Credits Earned in Semester 4"
+                  defaultValue={this.state.profile.credit4 >= 0 ? this.state.profile.credit4 : 'Credits Earned in Semester 4'}
+                />
+                <input
+                  type="text"
+                  name="cgpa5"
+                  placeholder="Semester 5 CGPA"
+                  defaultValue={this.state.profile.cgpa5 >= 0 ? this.state.profile.cgpa5 : 'Semester 5 CGPA'}
+                />
+                <input
+                  type="number"
+                  name="credit5"
+                  placeholder="Credits Earned in Semester 5"
+                  defaultValue={this.state.profile.credit5 >= 0 ? this.state.profile.credit5 : 'Credits Earned in Semester 5'}
+                />
+                <input
+                  type="text"
+                  name="cgpa6"
+                  placeholder="Semester 6 CGPA"
+                  defaultValue={this.state.profile.cgpa6 >= 0 ? this.state.profile.cgpa6 : 'Semester 6 CGPA'}
+                />
+                <input
+                  type="number"
+                  name="credit6"
+                  placeholder="Credits Earned in Semester 6"
+                  defaultValue={this.state.profile.credit6 >= 0 ? this.state.profile.credit6 : 'Credits Earned in Semester 6'}
+                />
+                <input
+                  type="text"
+                  name="cgpa7"
+                  placeholder="Semester 7 CGPA"
+                  defaultValue={this.state.profile.cgpa7 >= 0 ? this.state.profile.cgpa7 : ''}
+                />
+                <input
+                  type="number"
+                  name="credit7"
+                  placeholder="Credits Earned in Semester 7"
+                  defaultValue={this.state.profile.credit7 >= 0 ? this.state.profile.credit7 : ''}
+                />
+                <input
+                  type="text"
+                  name="cgpa8"
+                  placeholder="Semester 8 CGPA"
+                  defaultValue={this.state.profile.cgpa8 >= 0 ? this.state.profile.cgpa8 : ''}
+                />
+                <input
+                  type="number"
+                  name="credit8"
+                  placeholder="Credits Earned in Semester 8"
+                  defaultValue={this.state.profile.credit8 >= 0 ? this.state.profile.credit8 : ''}
+                />
+                <input
+                  type="number"
+                  name="totalcredit"
+                  placeholder="Total Credits Earned"
+                  defaultValue={this.state.profile.totalcredit >= 0 ? this.state.profile.totalcredit : ''}
+                />
+                <input
+                  type="number"
+                  name="mutebacklog"
+                  placeholder="No of Subjects Cleared In Mute"
+                  defaultValue={this.state.profile.mutebacklog >= 0 ? this.state.profile.mutebacklog : ''}
+                />
+                <input
+                  type="number"
+                  name="clearbacklog"
+                  placeholder="Cleared Arrears"
+                  defaultValue={this.state.profile.clearbacklog >= 0 ? this.state.profile.clearbacklog : ''}
+                />
+                <input
+                  type="number"
+                  name="currentbacklog"
+                  placeholder="Current Arrears"
+                  defaultValue={this.state.profile.currentbacklog >= 0 ? this.state.profile.currentbacklog : ''}
+                />
+              </Form>
+            </div>
           </div>
         </div>
-      </div>
-    );
+      );
+    }
+
+    return (<div>Fetching Profile details, Please wait</div>);
   }
 }
 
