@@ -42,6 +42,9 @@ class Welcome extends Component {
         .then((response) => {
           switch (response.code) {
             case 201:
+              window.localStorage.setItem('placementtoken', response.token);
+              window.localStorage.setItem('placementusername', response.fullName);
+              window.localStorage.setItem('placementloggedin', 'true');
               this.props.history.push('/editprofile');
               break;
 
