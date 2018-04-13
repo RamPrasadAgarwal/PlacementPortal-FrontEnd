@@ -112,13 +112,12 @@ class EditProfile extends Component {
                   max="9999999999"
                 />
 
-                <label style={{ fontSize: '22px', paddingLeft: '40px' }} >Gender</label>
+                <label style={{ fontSize: '22px', paddingLeft: '5%' }} >Gender</label><br /><br />
                 <label className="container1">Male
                   <input
                     type="radio"
                     name="sex"
                     value="male"
-                    defaultChecked={this.state.profile.sex === 'male'}
                     required
                   /> <span className="checkmark1" />
                 </label>
@@ -126,61 +125,66 @@ class EditProfile extends Component {
                   <input
                     type="radio"
                     name="sex"
-                    defaultChecked={this.state.profile.sex === 'female'}
                     value="female"
                     required
                   /> <span className="checkmark1" />
                 </label>
-
-                <label style={{ fontSize: '22px', paddingLeft: '40px' }} >Branch</label>
-                <label className="container">Computer Science and Engineering
+                <label style={{ fontSize: '22px', paddingLeft: '5%' }} >Branch</label><br /><br />
+                <label className="container1">Computer Science and Engineering
                   <input
-                    type="checkbox"
+                    type="radio"
                     name="branch"
                     value="cse"
+                    required
                   />
-                  <span className="checkmark" />
+                  <span className="checkmark1" />
                 </label>
-                <label className="container">Information Science
+                <label className="container1">Information Science
                   <input
-                    type="checkbox"
+                    type="radio"
                     name="branch"
                     value="ise"
+                    required
                   />
-                  <span className="checkmark" />
+                  <span className="checkmark1" />
                 </label>
-                <label className="container">Mechanical Engineering
+                <label className="container1">Mechanical Engineering
                   <input
-                    type="checkbox"
+                    type="radio"
                     name="branch"
                     value="me"
+                    required
                   />
-                  <span className="checkmark" />
+                  <span className="checkmark1" />
                 </label>
-                <label className="container">Electronics Engineering
+                <label className="container1">Electronics Engineering
                   <input
-                    type="checkbox"
+                    type="radio"
                     name="branch"
                     value="ec"
+                    required
                   />
-                  <span className="checkmark" />
+                  <span className="checkmark1" />
                 </label>
-                <label className="container">Electronics and Electrical Engineering
+                <label className="container1">Electronics and Electrical Engineering
                   <input
-                    type="checkbox"
+                    type="radio"
                     name="branch"
                     value="eee"
+                    required
                   />
-                  <span className="checkmark" />
+                  <span className="checkmark1" />
                 </label>
-                <label className="container">Industrial Production
+                <label className="container1">Industrial Production
                   <input
-                    type="checkbox"
+                    type="radio"
                     name="branch"
                     value="ip"
+                    required
                   />
-                  <span className="checkmark" />
+                  <span className="checkmark1" />
                 </label>
+
                 <Textarea
                   maxRows={5}
                   minRows={5}

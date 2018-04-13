@@ -62,10 +62,24 @@ class Company extends Component {
         this.setState({
           checked: Array(7).fill(true),
         });
-      } else {
+      }else {
         const checked = this.state.checked.slice();
         checked[i] = true;
         this.setState({ checked });
+        var count=0;
+      	for (var i = 0; i <7; i++) {
+      	  if (checked[i]===true&&checked[0]!==true) 
+      	   {
+      		  count++;
+      	   }
+      	}
+      	if(count==6)
+      	{
+      	  this.setState({
+          checked: Array(7).fill(true),
+        });
+      	}
+      		
       }
     } else if (!e.target.checked) {
       if (e.target.value === 'all') {
@@ -76,9 +90,18 @@ class Company extends Component {
         const checked = this.state.checked.slice();
         checked[i] = false;
         this.setState({ checked });
+        for (var i = 0; i <7; i++) {
+      	  if (checked[i]===false&&checked[0]===true) 
+      	   {
+      		  
+      			checked[0] = false;
+        		this.setState({ checked });
+      		}
+      	 }
+      	}
       }
     }
-  }
+  
 
   render() {
     return (
@@ -142,7 +165,7 @@ class Company extends Component {
                 placeholder="Job Description.."
                 required
               />
-              <label style={{ fontSize: '22px', paddingLeft: '40px' }} >Branch</label>
+              <label style={{ fontSize: '22px', paddingLeft: '5%' }} >Branch</label><br/><br/>
 
               <label className="container">All
                 <input
@@ -237,7 +260,7 @@ class Company extends Component {
                 value=""
                 required
               />
-              <label style={{ fontSize: '22px', paddingLeft: '40px' }} >History</label>
+              <label style={{ fontSize: '22px', paddingLeft: '5%' }} >History</label><br/><br/>
               <label className="container1">Yes
                 <input
                   type="radio"
