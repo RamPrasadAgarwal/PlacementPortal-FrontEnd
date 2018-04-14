@@ -73,12 +73,12 @@ class Company extends Component {
         checked[i] = true;
         this.setState({ checked });
         let count = 0;
-      	for (let j = 0; j < 7; j += 1) {
-      	  if (checked[j] === true && checked[0] !== true) {
-      		  count += 1;
+      	for (var i = 0; i < 7; i++) {
+      	  if (checked[i] === true && checked[0] !== true) {
+      		  count++;
       	   }
       	}
-      	if (count === 6) {
+      	if (count == 6) {
       	  this.setState({
             checked: Array(7).fill(true),
           });
@@ -155,6 +155,26 @@ class Company extends Component {
                 required
               />
               <label style={{ fontSize: '22px', paddingLeft: '5%' }} >Branch</label><br /><br />
+              <input
+                type="text"
+                name="cgpa"
+                placeholder="CGPA"
+                required
+              />
+              <input
+                type="text"
+                name="xmarks"
+                placeholder="10th Percentage"
+                required
+              />
+              <input
+                type="text"
+                name="xiimarks"
+                placeholder="12th Percentage"
+                required
+              />
+              <label style={{ fontSize: '22px', paddingLeft: '5%' }} >Branch</label><br /><br />
+
               <label className="container">All
                 <input
                   onChange={e => this.handleCheck(e, 0)}
@@ -239,6 +259,8 @@ class Company extends Component {
                 placeholder="12th Percentage"
                 required
               />
+              <br /><br />
+
               <label style={{ fontSize: '22px', paddingLeft: '5%' }} >History</label><br /><br />
               <label className="container1">Yes
                 <input

@@ -1,9 +1,31 @@
-
-		.detail-heading1
+		.div3
+		{
+			font-size: 20px;
+			float: left;
+			height: 70px;
+			width: 10%;
+			background: rgb(14,39,89);
+			color:white;
+			border: 1px solid black;
+			text-align: center;
+			padding-top: 10px;
+		}
+		.name2
+		{
+			font-size: 20px;
+			text-align: center;
+			float: left;
+			height: 80px;
+			width: 39%;
+			background-color: white;
+			color:white;
+			border:1px solid black;
+		}
+		.detail-heading
 		{
 			
 			height: 40px;
-			width: 94.57%;
+			width: 96.7%;
 			background: rgb(14,39,89);
 			color:white;
 			text-align: center;
@@ -12,55 +34,33 @@
             border:1px solid black;
             margin-left: 25px;
 		}
-		.company-details1
+		.div4
+		{
+			font-size: 20px;
+			float: left;
+			height: 45px;
+			width: 10%;
+			background: rgb(14,39,89);
+			color:white;
+			text-align: center;
+			padding-top: 10px;
+			border:1px solid black;
+		}
+		.name3
+		{
+			font-size: 20px;
+			float: left;
+			height: 55px;
+			width: 88.3%;
+			background-color: white;
+			color:white;
+			border: 1px solid black;
+		}
+		.company-details
 		{
 			margin-left:25px;
 		}
-		.div1
-		{
-			font-size: 20px;
-			float: left;
-			height: 100px;
-			width: 10%;
-			background: rgb(14,39,89);
-			color:white;
-			text-align: center;
-			padding-top: 40px;
-			border:1px solid black;
-		}
-		.div2
-		{
-			font-size: 20px;
-			float: left;
-			height: 50px;
-			width: 10%;
-			background: rgb(14,39,89);
-			color:white;
-			border: 1px solid black;
-			text-align: center;
-			padding-top: 10px;
-		}
-		.name
-		{
-			font-size: 20px;
-			float: left;
-			height: 140px;
-			width:86.35%;
-			background-color: white;
-			color:white;
-			border: 1px solid black;
-		}
-		.name1
-		{
-			font-size: 20px;
-			text-align: center;
-			float: left;
-			height: 60px;
-			width: 38%;
-			background-color: white;
-			color:white;
-			border:1px solid black;
-		}
+
 		.form-submit{
  		 width: 100%;
  		 }
