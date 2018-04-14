@@ -118,6 +118,7 @@ class EditProfile extends Component {
                     type="radio"
                     name="sex"
                     value="male"
+                    defaultChecked={this.state.profile.sex === 'male'}
                     required
                   /> <span className="checkmark1" />
                 </label>
@@ -126,6 +127,7 @@ class EditProfile extends Component {
                     type="radio"
                     name="sex"
                     value="female"
+                    defaultChecked={this.state.profile.sex === 'female'}
                     required
                   /> <span className="checkmark1" />
                 </label>
