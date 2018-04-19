@@ -42,7 +42,7 @@ class EditProfile extends Component {
       xmarks: data.get('xmarks'),
       xyear: data.get('xyear'),
       xiiinstitute: data.get('xiiinstitute'),
-      xiiboard: parseFloat(data.get('xiiboard')),
+      xiiboard: data.get('xiiboard'),
       xiimarks: data.get('xiimarks'),
       xiiyear: data.get('xiiyear'),
       cetrank: data.get('cetrank'),
@@ -66,7 +66,7 @@ class EditProfile extends Component {
       mutebacklog: data.get('mutebacklog'),
       clearbacklog: data.get('clearbacklog'),
       currentbacklog: data.get('currentbacklog'),
-      historybacklog: data.get('mutebacklog') + data.get('clearbacklog') ? 1 : 0,
+      historybacklog: !!(data.get('mutebacklog') + data.get('clearbacklog')),
     };
     fetch('/profile', {
       method: 'POST',
@@ -117,8 +117,8 @@ class EditProfile extends Component {
                   <input
                     type="radio"
                     name="sex"
-                    value="male"
-                    defaultChecked={this.state.profile.sex === 'male'}
+                    value="Male"
+                    defaultChecked={this.state.profile.sex === 'Male'}
                     required
                   /> <span className="checkmark1" />
                 </label>
@@ -126,8 +126,8 @@ class EditProfile extends Component {
                   <input
                     type="radio"
                     name="sex"
-                    value="female"
-                    defaultChecked={this.state.profile.sex === 'female'}
+                    value="Female"
+                    defaultChecked={this.state.profile.sex === 'Female'}
                     required
                   /> <span className="checkmark1" />
                 </label>
@@ -136,16 +136,18 @@ class EditProfile extends Component {
                   <input
                     type="radio"
                     name="branch"
-                    value="cse"
+                    value="COMPUTER SCIENCE AND ENGINEERING"
+                    defaultChecked={this.state.profile.branch === 'COMPUTER SCIENCE AND ENGINEERING'}
                     required
                   />
                   <span className="checkmark1" />
                 </label>
-                <label className="container1">Information Science
+                <label className="container1">Information Science and Engineering
                   <input
                     type="radio"
                     name="branch"
-                    value="ise"
+                    value="INFORMATION SCIENCE AND ENGINEERING"
+                    defaultChecked={this.state.profile.branch === 'INFORMATION SCIENCE AND ENGINEERING'}
                     required
                   />
                   <span className="checkmark1" />
@@ -154,34 +156,48 @@ class EditProfile extends Component {
                   <input
                     type="radio"
                     name="branch"
-                    value="me"
+                    value="MECHANICAL ENGINEERING"
+                    defaultChecked={this.state.profile.branch === 'MECHANICAL ENGINEERING'}
                     required
                   />
                   <span className="checkmark1" />
                 </label>
-                <label className="container1">Electronics Engineering
+                <label className="container1">Electronics and Communications Engineering
                   <input
                     type="radio"
                     name="branch"
-                    value="ec"
+                    value="ELECTRONICS AND COMMUNICATIONS ENGINEERING"
+                    defaultChecked={this.state.profile.branch === 'ELECTRONICS AND COMMUNICATIONS ENGINEERING'}
                     required
                   />
                   <span className="checkmark1" />
                 </label>
-                <label className="container1">Electronics and Electrical Engineering
+                <label className="container1">Electrical and Electronics Engineering
                   <input
                     type="radio"
                     name="branch"
-                    value="eee"
+                    value="ELECTRICAL AND ELECTRONICS ENGINEERING"
+                    defaultChecked={this.state.profile.branch === 'ELECTRICAL AND ELECTRONICS ENGINEERING'}
                     required
                   />
                   <span className="checkmark1" />
                 </label>
-                <label className="container1">Industrial Production
+                <label className="container1">Industrial and Production Engineering
                   <input
                     type="radio"
                     name="branch"
-                    value="ip"
+                    value="INDUSTRIAL AND PRODUCTION ENGINEERING"
+                    defaultChecked={this.state.profile.branch === 'INDUSTRIAL AND PRODUCTION ENGINEERING'}
+                    required
+                  />
+                  <span className="checkmark1" />
+                </label>
+                <label className="container1">Civil Engineering
+                  <input
+                    type="radio"
+                    name="branch"
+                    value="CIVIL ENGINEERING"
+                    defaultChecked={this.state.profile.branch === 'CIVIL ENGINEERING'}
                     required
                   />
                   <span className="checkmark1" />
