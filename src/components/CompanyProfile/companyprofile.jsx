@@ -5,10 +5,8 @@ import PropTypes from 'prop-types';
 import './companyprofile.css';
 
 class Detail extends Component {
-  render()
-  {
+  render() {
     return (
-
       <div className="company-details1">
         <div className="div2">
           {this.props.value1}:

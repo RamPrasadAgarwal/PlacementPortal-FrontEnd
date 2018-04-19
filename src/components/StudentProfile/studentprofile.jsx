@@ -54,7 +54,7 @@ class Studentprofile extends Component {
           <h1><center>Student Profile</center></h1>
         </div>
         <hr/>
-        <center><input type="image" src="./nie.jpg" alt="Submit" width="48px" height="48px"/></center>
+        <center><input type="image" src="nie.jpg" alt="Submit" width="48px" height="48px"/></center>
          <div className="detail-heading">
                 Congratulations!!!!! you have been Placed
         </div>
