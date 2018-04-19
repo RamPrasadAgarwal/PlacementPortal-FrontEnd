@@ -21,8 +21,8 @@ const App = () => (
       <Route exact path="/company" component={Company} />
       <Route exact path="/companyprofile" component={CompanyProfile} />
       <Route exact path="/studentprofile" component={StudentProfile} />
-      <Route exact path="/companyprof" component={CompanyProf} />
-      <Route exact path="/studentprof" component={StudentProf} />
+      <Route exact path="/dashboard" component={CompanyProf} />
+      <Route exact path="/profile" component={StudentProf} />
       <Route exact path="/promote" component={Promote} />
       {/* <Route path="*" exact component={NotFound} /> */}
     </Switch>
