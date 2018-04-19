@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Form from '../Form/form';
 import Textarea from 'react-textarea-autosize';
+import Form from '../Form/form';
 import './company.css';
 
 
@@ -67,19 +67,16 @@ class Company extends Component {
         checked[i] = true;
         this.setState({ checked });
         let count = 0;
-      	for (var i = 0; i < 7; i++) {
-      	  if (checked[i] === true && checked[0] !== true)
-      	   {
-      		  count++;
-      	   }
-      	}
-      	if (count == 6)
-      	{
-      	  this.setState({
+        for (let j = 0; j < 7; j += 1) {
+          if (checked[j] === true && checked[0] !== true) {
+            count += 1;
+          }
+        }
+        if (count === 6) {
+          this.setState({
             checked: Array(7).fill(true),
           });
-      	}
-
+        }
       }
     } else if (!e.target.checked) {
       if (e.target.value === 'all') {
@@ -90,15 +87,13 @@ class Company extends Component {
         const checked = this.state.checked.slice();
         checked[i] = false;
         this.setState({ checked });
-        for (var i = 0; i < 7; i++) {
-      	  if (checked[i] === false && checked[0] === true)
-      	   {
-
-      			checked[0] = false;
-        		this.setState({ checked });
-      		}
-      	 }
-      	}
+        for (let j = 0; j < 7; j += 1) {
+          if (checked[j] === false && checked[0] === true) {
+            checked[0] = false;
+            this.setState({ checked });
+          }
+        }
+      }
     }
   }
 

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Link, NavLink, withRouter } from 'react-router-dom';
-import PropTypes from 'prop-types';
+import { withRouter } from 'react-router-dom';
+// import PropTypes from 'prop-types';
 import './companyprofile.css';
 
 class Detail extends Component {

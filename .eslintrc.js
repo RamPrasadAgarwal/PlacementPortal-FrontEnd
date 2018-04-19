@@ -12,6 +12,7 @@ module.exports = {
         "no-nested-ternary": 0,
         "jsx-a11y/no-static-element-interactions":0,
         "react/no-did-mount-set-state":0,
-        "jsx-a11y/label-has-for": 0
+        "jsx-a11y/label-has-for": 0,
+        "react/no-multi-comp": 0
     }
 };

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link, NavLink, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 // import Form from '../Form/form';
 // import PropTypes from 'prop-types';
 import './studentprof.css';
@@ -39,7 +39,7 @@ class Studentprof extends Component {
       return (
         <div>
           <div className="prof">
-            <img src="pics/ashu.jpg" alt="image of student" />
+            <img src="pics/ashu.jpg" alt="student" />
             <div id="heading"><b>{this.state.profile.fullname.toUpperCase()}</b></div>
             <div id="heading1">{this.state.profile.branch}</div>
             <div id="heading2">{this.state.profile.usn.toUpperCase()}</div><br />
