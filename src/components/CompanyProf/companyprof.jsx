@@ -37,6 +37,7 @@ function Descript1(props) {
 }
 function Detail1() {
   return (
+
     <div className="profile1">
       <h1>Delloite USI</h1>
       <h3>Sales and Marketing intern</h3><hr />
@@ -67,9 +68,16 @@ function Detail1() {
           info3="Interview Date:{add the info here}"
         />
         <hr />
+        <div className="form-submit1">
+                          <button type="submit">
+                              Register
+                          </button>
+                    </div>  
       </div>
     </div>
   );
+            
+
 }
 class Detail extends Component {
   constructor(props) {

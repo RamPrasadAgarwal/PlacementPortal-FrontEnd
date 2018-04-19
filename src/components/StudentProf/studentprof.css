@@ -6,7 +6,7 @@
     		border: 1px solid black;
     		box-sizing: border-box;
     		margin-top: 100px;
-    		margin-left: 250px;
+    		margin-left: 220px;
     		background-color: rgb(14,39,89);
     		color:white;	
 		}
@@ -48,7 +48,7 @@
  
 		    border-collapse: collapse;
 		    width: 900px;
-    		margin-left: 250px;
+    		margin-left: 220px;
 		    border: 1px solid black;
 		}
 
@@ -60,7 +60,7 @@
 }
 
 #academics tr:nth-child(even){background-color: white;}
-#academics tr:nth-child(odd){background-color:  rgb(14,39,89);color:white;}
+#academics tr:nth-child(odd){background-color:  rgb(14,39,89);color:black;}
 #academics tr:hover {background-color: #ddd;}
 #academics th {
     		padding-top: 12px;
@@ -69,3 +69,13 @@
     		background-color: rgb(14,39,89);
     		color: white;
 }
+.form-submit2 button{
+		  background: rgb(240,115,1);
+		  border: none;
+		  color: white;
+		  font-size: 16px;
+		  padding: 20px 10%;
+		  border-radius: 5px;
+		  display: block;
+		  margin: auto;
+		}
