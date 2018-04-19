@@ -62,24 +62,24 @@ class Company extends Component {
         this.setState({
           checked: Array(7).fill(true),
         });
-      }else {
+      } else {
         const checked = this.state.checked.slice();
         checked[i] = true;
         this.setState({ checked });
-        var count=0;
-      	for (var i = 0; i <7; i++) {
-      	  if (checked[i]===true&&checked[0]!==true) 
+        let count = 0;
+      	for (var i = 0; i < 7; i++) {
+      	  if (checked[i] === true && checked[0] !== true)
       	   {
       		  count++;
       	   }
       	}
-      	if(count==6)
+      	if (count == 6)
       	{
       	  this.setState({
-          checked: Array(7).fill(true),
-        });
+            checked: Array(7).fill(true),
+          });
       	}
-      		
+
       }
     } else if (!e.target.checked) {
       if (e.target.value === 'all') {
@@ -90,18 +90,18 @@ class Company extends Component {
         const checked = this.state.checked.slice();
         checked[i] = false;
         this.setState({ checked });
-        for (var i = 0; i <7; i++) {
-      	  if (checked[i]===false&&checked[0]===true) 
+        for (var i = 0; i < 7; i++) {
+      	  if (checked[i] === false && checked[0] === true)
       	   {
-      		  
+
       			checked[0] = false;
         		this.setState({ checked });
       		}
       	 }
       	}
-      }
     }
-  
+  }
+
 
   render() {
     return (
@@ -165,7 +165,25 @@ class Company extends Component {
                 placeholder="Job Description.."
                 required
               />
-              <label style={{ fontSize: '22px', paddingLeft: '5%' }} >Branch</label><br/><br/>
+              <input
+                type="text"
+                name="cgpa"
+                placeholder="CGPA"
+                required
+              />
+              <input
+                type="text"
+                name="xmarks"
+                placeholder="10th Percentage"
+                required
+              />
+              <input
+                type="text"
+                name="xiimarks"
+                placeholder="12th Percentage"
+                required
+              />
+              <label style={{ fontSize: '22px', paddingLeft: '5%' }} >Branch</label><br /><br />
 
               <label className="container">All
                 <input
@@ -245,22 +263,9 @@ class Company extends Component {
                 />
                 <span className="checkmark" />
               </label>
+              <br /><br />
 
-              <input
-                type="text"
-                name="xmarks"
-                placeholder="10th Percentage"
-                value=""
-                required
-              />
-              <input
-                type="text"
-                name="xiimarks"
-                placeholder="12th Percentage"
-                value=""
-                required
-              />
-              <label style={{ fontSize: '22px', paddingLeft: '5%' }} >History</label><br/><br/>
+              <label style={{ fontSize: '22px', paddingLeft: '5%' }} >History</label><br /><br />
               <label className="container1">Yes
                 <input
                   type="radio"
@@ -276,15 +281,7 @@ class Company extends Component {
                   value="no"
                   required
                 /> <span className="checkmark1" />
-              </label>
-              <input
-                type="text"
-                name="cgpa"
-                placeholder="CGPA"
-                value=""
-                required
-              />
-
+              </label><br />
             </Form>
           </div>
         </div>

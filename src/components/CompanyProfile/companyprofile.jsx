@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Link, NavLink, withRouter } from 'react-router-dom';
-import Form from '../Form/form';
 import PropTypes from 'prop-types';
 import './companyprofile.css';
 
@@ -29,7 +28,6 @@ class Detail extends Component {
 class Detail1 extends Component {
   render() {
     return (
-
       <div className="company-details">
         <div className="div1">
           {this.props.val1}:
@@ -38,7 +36,6 @@ class Detail1 extends Component {
           {this.props.val2}
         </div>
       </div>
-
     );
   }
 }
