@@ -3,7 +3,7 @@ import { Switch, Route, withRouter } from 'react-router-dom';
 import Header from '../Header/header';
 import Welcome from '../Welcome/welcome';
 import EditProfile from '../EditProfile/editprofile';
-import Company from '../Company/company';
+import Company from '../CompanyForm/companyform';
 import CompanyProfile from '../CompanyProfile/companyprofile';
 import CompanyProf from '../CompanyProf/companyprof';
 import StudentProfile from '../StudentProfile/studentprofile';

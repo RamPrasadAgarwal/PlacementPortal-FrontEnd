@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Textarea from 'react-textarea-autosize';
 import Form from '../Form/form';
-import './company.css';
+import './companyform.css';
 
 
 class Company extends Component {
