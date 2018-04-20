@@ -9,6 +9,7 @@
     		margin-top: 50px;
     		margin-left: 25%;
     		font-size: 19px;
+            color: white;
 		}
 .profile img
 		{
@@ -19,13 +20,15 @@
 		{
 			width: 700px;
     		height: 800px;    
-    		padding: 50px;
+    		padding-left: 50px;
+            padding-right: 50px;
     		background: rgb(14,39,89);
     		border: 2px solid black;
     		box-sizing: border-box;
-    		margin-top: 50px;
+    		margin-top: 20px;
     		margin-left: 25%;
     		font-size: 18px;
+            color: white;
 		}		
 .link
 		{
@@ -41,3 +44,17 @@
         {
             font-size: 30px;
         }
+.profile1 h1
+        {
+            font-size: 50px;
+        }      
+.form-submit1 button{
+          background: rgb(240,115,2);
+          border: none;
+          color: white;
+          font-size: 16px;
+          padding: 20px 10%;
+          border-radius: 5px;
+          display: block;
+          margin: auto;
+        }          
