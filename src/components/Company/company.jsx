@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 // import Form from '../Form/form';
 // import PropTypes from 'prop-types';
-import './companyprof.css';
+import './company.css';
 
 function Companyprof() {
   return (
@@ -69,15 +69,13 @@ function Detail1() {
         />
         <hr />
         <div className="form-submit1">
-                          <button type="submit">
+          <button type="submit">
                               Register
                           </button>
-                    </div>  
+        </div>
       </div>
     </div>
   );
-            
-
 }
 class Detail extends Component {
   constructor(props) {
@@ -103,7 +101,7 @@ class Detail extends Component {
           <center><button
             onClick={this.toggleHidden.bind(this)}
           >{this.state.isHidden ? 'MORE' : 'LESS'}
-                  </button>
+          </button>
           </center>
         </div>
       </div>

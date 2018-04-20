@@ -3,10 +3,8 @@ import { Switch, Route, withRouter } from 'react-router-dom';
 import Header from '../Header/header';
 import Welcome from '../Welcome/welcome';
 import EditProfile from '../EditProfile/editprofile';
-import Company from '../CompanyForm/companyform';
-import CompanyProfile from '../CompanyProfile/companyprofile';
-import CompanyProf from '../CompanyProf/companyprof';
-import StudentProfile from '../StudentProfile/studentprofile';
+import CompanyForm from '../CompanyForm/companyform';
+import Company from '../Company/company';
 import Promote from '../Promote/promote';
 import StudentProf from '../StudentProf/studentprof';
 // import NotFound from '../NotFound404';
@@ -18,10 +16,8 @@ const App = () => (
     <Switch>
       <Route exact path="/" component={Welcome} />
       <Route exact path="/editprofile" component={EditProfile} />
-      <Route exact path="/company" component={Company} />
-      <Route exact path="/companyprofile" component={CompanyProfile} />
-      <Route exact path="/studentprofile" component={StudentProfile} />
-      <Route exact path="/dashboard" component={CompanyProf} />
+      <Route exact path="/companyform" component={CompanyForm} />
+      <Route exact path="/dashboard" component={Company} />
       <Route exact path="/profile" component={StudentProf} />
       <Route exact path="/promote" component={Promote} />
       {/* <Route path="*" exact component={NotFound} /> */}
