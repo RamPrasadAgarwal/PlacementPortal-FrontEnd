@@ -141,6 +141,11 @@ class Studentprof extends Component {
               td4={this.state.profile.currentbacklog}
             />
           </table>
+          <div className="form-submit2">
+            <button type="Edit Profile">
+              Register
+            </button>
+          </div>  
         </div>
       );
     }
