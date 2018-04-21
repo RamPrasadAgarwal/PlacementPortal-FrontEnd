@@ -38,9 +38,3 @@
   padding: 12px;
   line-height: 1.5em;
 }
-
-@media screen and (max-width: 900px) {
-  .signup-text{
-    display: none;
-  }
-}

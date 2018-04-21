@@ -10,7 +10,7 @@ class Company extends Component {
     this.state = {
       error: null,
       errortype: null,
-      checked: Array(7).fill(false),
+      checked: Array(8).fill(false),
     };
     this.handleCheck = this.handleCheck.bind(this);
   }
@@ -25,16 +25,23 @@ class Company extends Component {
       location: data.get('location'),
       test: data.get('testdate'),
       interview: data.get('interviewdate'),
+      deadline: data.get('deadlinedate'),
       ctc: data.get('salary'),
       jd: data.get('descript'),
-      branch: data.get('branch'),
+      cse: this.state.checked[1],
+      ise: this.state.checked[2],
+      me: this.state.checked[3],
+      ec: this.state.checked[4],
+      eee: this.state.checked[5],
+      ip: this.state.checked[6],
+      cv: this.state.checked[7],
       xmarks: data.get('xmarks'),
       xiimarks: data.get('xiimarks'),
       history: data.get('history'),
       cgpa: data.get('cgpa'),
       venue: data.get('venue'),
     };
-    fetch('/comapny', {
+    fetch('/company', {
       method: 'POST',
       headers: { authtoken },
       body: JSON.stringify(payload),
@@ -60,34 +67,34 @@ class Company extends Component {
     if (e.target.checked) {
       if (e.target.value === 'all') {
         this.setState({
-          checked: Array(7).fill(true),
+          checked: Array(8).fill(true),
         });
       } else {
         const checked = this.state.checked.slice();
         checked[i] = true;
         this.setState({ checked });
         let count = 0;
-        for (let j = 0; j < 7; j += 1) {
+        for (let j = 0; j < 8; j += 1) {
           if (checked[j] === true && checked[0] !== true) {
             count += 1;
           }
         }
-        if (count === 6) {
+        if (count === 7) {
           this.setState({
-            checked: Array(7).fill(true),
+            checked: Array(8).fill(true),
           });
         }
       }
     } else if (!e.target.checked) {
       if (e.target.value === 'all') {
         this.setState({
-          checked: Array(7).fill(false),
+          checked: Array(8).fill(false),
         });
       } else {
         const checked = this.state.checked.slice();
         checked[i] = false;
         this.setState({ checked });
-        for (let j = 0; j < 7; j += 1) {
+        for (let j = 0; j < 8; j += 1) {
           if (checked[j] === false && checked[0] === true) {
             checked[0] = false;
             this.setState({ checked });
@@ -123,16 +130,31 @@ class Company extends Component {
                 placeholder="About the Company.."
                 required
               />
+              <label style={{ fontSize: '22px', paddingLeft: '5%' }} >Test Date &amp; Time</label>
               <input
-                type="text"
+                type="datetime-local"
                 name="testdate"
                 placeholder="Test Date (dd/mm/yyyy)"
                 required
               />
+              <label style={{ fontSize: '22px', paddingLeft: '5%' }} >Interview Date &amp; Time</label>
               <input
-                type="text"
+                type="datetime-local"
                 name="interviewdate"
                 placeholder="Interview Date (dd/mm/yyyy)"
+                required
+              />
+              <label style={{ fontSize: '22px', paddingLeft: '5%' }} >Last Date For Acceptance From</label>
+              <input
+                type="datetime-local"
+                name="deadlinedate"
+                placeholder="Interview Date (dd/mm/yyyy)"
+                required
+              />
+              <input
+                type="text"
+                name="venue"
+                placeholder="Venue"
                 required
               />
               <input
@@ -187,7 +209,6 @@ class Company extends Component {
                   name="branch"
                   value="all"
                   checked={this.state.checked[0]}
-                  required
                 />
                 <span className="checkmark" />
 
@@ -199,7 +220,6 @@ class Company extends Component {
                   name="branch"
                   value="cse"
                   checked={this.state.checked[1]}
-                  required
                 />
                 <span className="checkmark" />
               </label>
@@ -210,7 +230,6 @@ class Company extends Component {
                   name="branch"
                   value="ise"
                   checked={this.state.checked[2]}
-                  required
                 />
                 <span className="checkmark" />
               </label>
@@ -221,7 +240,6 @@ class Company extends Component {
                   name="branch"
                   value="me"
                   checked={this.state.checked[3]}
-                  required
                 />
                 <span className="checkmark" />
               </label>
@@ -232,7 +250,6 @@ class Company extends Component {
                   name="branch"
                   value="ec"
                   checked={this.state.checked[4]}
-                  required
                 />
                 <span className="checkmark" />
               </label>
@@ -243,7 +260,6 @@ class Company extends Component {
                   name="branch"
                   value="eee"
                   checked={this.state.checked[5]}
-                  required
                 />
                 <span className="checkmark" />
               </label>
@@ -254,7 +270,16 @@ class Company extends Component {
                   name="branch"
                   value="ip"
                   checked={this.state.checked[6]}
-                  required
+                />
+                <span className="checkmark" />
+              </label>
+              <label className="container">Civil Engineering
+                <input
+                  onChange={e => this.handleCheck(e, 7)}
+                  type="checkbox"
+                  name="branch"
+                  value="cv"
+                  checked={this.state.checked[7]}
                 />
                 <span className="checkmark" />
               </label>
