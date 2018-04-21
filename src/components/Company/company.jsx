@@ -4,78 +4,97 @@ import { withRouter } from 'react-router-dom';
 // import PropTypes from 'prop-types';
 import './company.css';
 
-function Companyprof() {
-  return (
-    <div>
-      <div className="profile">
-        <h1>Deloitte USI</h1>
-                Sales and Marketing intern<br />
-                ALL Branches<br />
-                Bangalore,India
-        <hr />
-      </div>
-    </div>
-  );
+function datetime(datetime) {
+  return new Date(datetime).toLocaleString();
 }
-function Descript(props) {
-  return (
-    <div>
-      <b>{props.value}</b><br />
-      {props.info}
-    </div>
-  );
-}
-function Descript1(props) {
-  return (
-    <div>
-      <b>{props.value}</b><br />
-      {props.info1}<br />
-      {props.info2}<br />
-      {props.info3}<br />
-    </div>
-  );
-}
-function Detail1() {
-  return (
-
-    <div className="profile1">
-      <h1>Delloite USI</h1>
-      <h3>Sales and Marketing intern</h3><hr />
+class Companyprof extends Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return (
       <div>
-        <Descript
-          value="Job Description"
-          info=" Deloitte USI
-                                      Bangalore,India"
-        />
-        <hr />
-        <Descript
-          value="About Company"
-          info=" Deloitte USI
-                                      Bangalore,India"
-        />
-        <hr />
-        <Descript1
-          value="Requirements"
-          info1="10th Percentage:{add the info here}"
-          info2="12th Percentage:{add the info here}"
-          info3="CGPA:{add the info here}"
-        />
-        <hr />
-        <Descript1
-          value="Requirements"
-          info1="Salary:{add the info here}"
-          info2="Test Date:{add the info here}"
-          info3="Interview Date:{add the info here}"
-        />
-        <hr />
-        <div className="form-submit1">
-          <button type="submit">
-                              Register
-                          </button>
+        <div className="profile">
+          <h1>{this.props.company.name}</h1>
+          {this.props.company.position}<br />
+          {this.props.company.location}
+          <hr />
         </div>
       </div>
-    </div>
-  );
+    );
+  }
+}
+class Descript extends Component {
+  render() {
+    return (
+      <div>
+        <b>{this.props.value}</b><br />
+        {this.props.info}
+      </div>
+    );
+  }
+}
+class Descript1 extends Component {
+  render() {
+    return (
+      <div>
+        <b>{this.props.value}</b><br />
+        {this.props.info1}<br />
+        {this.props.info2}<br />
+        {this.props.info3}<br />
+      </div>
+    );
+  }
+}
+class Detail1 extends Component {
+  render() {
+    return (
+      <div className="profile1">
+        <h1>{this.props.company.name}</h1>
+        <h3>{this.props.company.position}<br />
+          {this.props.company.location}<hr />
+          Deadline: {datetime(this.props.company.deadline)}
+        </h3>
+        <hr />
+        <div>
+          <Descript
+            value="Job Description"
+            info={this.props.company.jd}
+          />
+          <hr />
+          <Descript
+            value="About Company"
+            info={this.props.company.about}
+          />
+          <hr />
+          <Descript1
+            value="Requirements"
+            // info1="10th Percentage:"
+            // info2="12th Percentage:{add the info here}"
+            info3={`CGPA: ${this.props.company.cgpa}`}
+          />
+          <hr />
+          <Descript1
+            value="Requirements"
+            info1={`Salary: ${this.props.company.ctc} Lacs`}
+            info2={`Test Date: ${datetime(this.props.company.test)}`}
+            info3={`Interview Date: ${datetime(this.props.company.interview)}`}
+          />
+          <hr />
+          <br />
+          <div className="form-submit1">
+            <button
+              type="submit"
+              onClick={() => alert('remaining functionality')}
+            >
+              Register
+            </button>
+            <br /><br />
+          </div>
+        </div>
+      </div>
+    );
+  }
 }
 class Detail extends Component {
   constructor(props) {
@@ -90,20 +109,14 @@ class Detail extends Component {
     });
   }
   show() {
-    if (this.state.isHidden) { return <Companyprof />; }
-    return <Detail1 />;
+    // if (this.state.isHidden) { return <Companyprof company={this.props.company} />; }
+    return <Detail1 company={this.props.company} />;
   }
   render() {
     return (
       <div>
         {this.show()}
-        <div className="link">
-          <center><button
-            onClick={this.toggleHidden.bind(this)}
-          >{this.state.isHidden ? 'MORE' : 'LESS'}
-          </button>
-          </center>
-        </div>
+
       </div>
     );
   }

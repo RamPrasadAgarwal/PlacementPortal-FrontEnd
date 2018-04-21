@@ -6,9 +6,8 @@ import EditProfile from '../EditProfile/editprofile';
 import CompanyForm from '../CompanyForm/companyform';
 import Company from '../Company/company';
 import Promote from '../Promote/promote';
+import Dashboard from '../Dashboard/dashboard';
 import StudentProf from '../StudentProf/studentprof';
-// import NotFound from '../NotFound404';
-// import './index.css';
 
 const App = () => (
   <div className="App">
@@ -18,9 +17,9 @@ const App = () => (
       <Route exact path="/editprofile" component={EditProfile} />
       <Route exact path="/companyform" component={CompanyForm} />
       <Route exact path="/dashboard" component={Company} />
+      <Route exact path="/dashboard1" component={Dashboard} />
       <Route exact path="/profile" component={StudentProf} />
       <Route exact path="/promote" component={Promote} />
-      {/* <Route path="*" exact component={NotFound} /> */}
     </Switch>
   </div>
 );

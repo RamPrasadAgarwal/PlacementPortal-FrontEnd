@@ -9,6 +9,7 @@ class Dashboard extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      companies: null,
     };
   }
   componentWillMount() {
@@ -17,15 +18,29 @@ class Dashboard extends Component {
       headers: { authtoken: window.localStorage.getItem('placementtoken') },
     })
       .then(response => response.json())
-      .then(console.log);
+      .then((response) => {
+        if (response.code === 200) {
+          this.setState({
+            companies: response.message,
+          });
+        }
+      });
   }
   render() {
-    return (
-      <div>
-        {this.state.companies.map(company =>
-          <Company />)}
-      </div>
-    );
+    if (this.state.companies !== null) {
+      this.state.companies.map((company) => {
+        console.log(company);
+          <Company company={company} />;
+      });
+      console.log(this.state.companies);
+      return (
+        <div>
+          {this.state.companies.map(company =>
+            <Company company={company} />)}
+        </div>
+      );
+    }
+    return (<div>Fetching companies, Please wait</div>);
   }
 }
 

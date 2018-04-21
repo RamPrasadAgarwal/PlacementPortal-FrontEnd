@@ -52,6 +52,7 @@ class Studentprof extends Component {
               <div className="form-submit2">
                 <button
                   type="submit"
+                  onClick={() => { this.props.history.push('/editprofile'); }}
                 > Update
                 </button>
               </div>

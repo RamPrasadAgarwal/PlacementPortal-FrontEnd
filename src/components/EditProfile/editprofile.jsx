@@ -211,7 +211,7 @@ class EditProfile extends Component {
                   />
                   <span className="checkmark1" />
                 </label>
-
+                <br />
                 <Textarea
                   maxRows={5}
                   minRows={5}
