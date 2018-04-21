@@ -1,12 +1,12 @@
 .profile
 		{
-			width: 700px;
+			width: 52%;
     		height: 250px;    
-    		padding: 50px;
+    		padding: 3%;
     		background: rgb(14,39,89);
     		border: 2px solid black;
     		box-sizing: border-box;
-    		margin-top: 50px;
+    		margin-top: 4%;
     		margin-left: 25%;
     		font-size: 19px;
             color: white;
@@ -18,23 +18,23 @@
 		}
 .profile1
 		{
-			width: 700px;
+			width: 52%;
     		height: 800px;    
     		padding-left: 50px;
             padding-right: 50px;
     		background: rgb(14,39,89);
     		border: 2px solid black;
     		box-sizing: border-box;
-    		margin-top: 20px;
+    		margin-top: 4%;
     		margin-left: 25%;
     		font-size: 18px;
             color: white;
 		}		
 .link
 		{
-			width: 700px;
-			height: 0px;    
-    		padding: 50px;
+			width: 52%;
+			height: 40px;    
+    		padding: 10px;
     		background: rgb(14,39,89);
     		border: 2px solid black;
     		box-sizing: border-box;
@@ -57,4 +57,4 @@
           border-radius: 5px;
           display: block;
           margin: auto;
-        }          
+        }   
