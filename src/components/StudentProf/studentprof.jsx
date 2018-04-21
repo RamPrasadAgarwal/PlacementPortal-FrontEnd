@@ -36,10 +36,10 @@ class Studentprof extends Component {
   }
   render() {
     if (this.state.profile !== null) {
+      console.log(this.state.profile);
       return (
         <div>
           <div className="prof">
-            <img src="pics/ashu.jpg" alt="student" />
             <div id="heading"><b>{this.state.profile.fullname.toUpperCase()}</b></div>
             <div id="heading1">{this.state.profile.branch}</div>
             <div id="heading2">{this.state.profile.usn.toUpperCase()}</div><br />
@@ -48,7 +48,13 @@ class Studentprof extends Component {
 						Phone No: {this.state.profile.phone}<br />
 						Email: {this.state.profile.email}<br />
 						Date of Birth: {this.state.profile.dob} <br /><br />
-            CGPA: 8.71
+            CGPA: {this.state.profile.cgpa}
+              <div className="form-submit2">
+                <button
+                  type="submit"
+                > Update
+                </button>
+              </div>
             </div>
             <br />
           </div><br />
@@ -138,14 +144,9 @@ class Studentprof extends Component {
               td1="Cleared Arrears "
               td2={this.state.profile.clearbacklog}
               td3="Current Arrears"
-              td4={this.state.profile.currentbacklog}
+              td4={Number(this.state.profile.currentbacklog)}
             />
           </table>
-          <div className="form-submit2">
-            <button type="Edit Profile">
-             Register
-            </button>
-          </div>
         </div>
       );
     }

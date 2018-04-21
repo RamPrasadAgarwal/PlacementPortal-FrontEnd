@@ -68,14 +68,23 @@ class EditProfile extends Component {
       currentbacklog: data.get('currentbacklog'),
       historybacklog: !!(data.get('mutebacklog') + data.get('clearbacklog')),
     };
+    console.log('hey');
     fetch('/profile', {
       method: 'POST',
       headers: { authtoken },
       body: JSON.stringify(payload),
     })
       .then(response => response.json())
-      .then(console.log);
-    this.setState({});
+      .then((res) => {
+        console.log(res);
+        if (res.code === 204) {
+          this.props.history.push('/profile');
+        } else {
+          this.setState({
+            errorprofile: res.message,
+          });
+        }
+      });
   }
 
   render() {
@@ -384,7 +393,7 @@ class EditProfile extends Component {
                   type="number"
                   name="currentbacklog"
                   placeholder="Current Arrears"
-                  defaultValue={this.state.profile.currentbacklog >= 0 ? this.state.profile.currentbacklog : ''}
+                  defaultValue={this.state.profile.currentbacklog >= 0 ? Number(this.state.profile.currentbacklog) : ''}
                 />
               </Form>
             </div>

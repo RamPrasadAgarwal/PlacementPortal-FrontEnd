@@ -1,7 +1,7 @@
 .prof
 		{
 			width: 65%;
-    		height: 350px;    
+    		height: 400px;    
     		padding: 3%;
     		border: 1px solid black;
     		box-sizing: border-box;
@@ -65,5 +65,6 @@
 		  padding: 20px 10%;
 		  border-radius: 5px;
 		  display: block;
-		  margin: auto;
+			margin: auto;
+			float: right;
 		}
