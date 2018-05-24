@@ -7,6 +7,7 @@ import CompanyForm from '../CompanyForm/companyform';
 import Company from '../Company/company';
 import Promote from '../Promote/promote';
 import StudentProf from '../StudentProf/studentprof';
+import FinalProf from '../FinalProf/finalprof';
 // import NotFound from '../NotFound404';
 // import './index.css';
 
@@ -19,6 +20,7 @@ const App = () => (
       <Route exact path="/companyform" component={CompanyForm} />
       <Route exact path="/dashboard" component={Company} />
       <Route exact path="/profile" component={StudentProf} />
+      <Route exact path="/final" component={FinalProf} />
       <Route exact path="/promote" component={Promote} />
       {/* <Route path="*" exact component={NotFound} /> */}
     </Switch>
