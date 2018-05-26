@@ -33,38 +33,38 @@ function Detail2(props) {
   					<div id ="heading"><b>Engineering Details</b></div><br /><hr />
   						<div class="flex-container1">
   							<div id="ques">
-  								1st Sem CGPA:<br /><br />
-  								2nd Sem CGPA:<br /><br />
-  								3rd Sem CGPA:<br /><br />
-  								4th Sem CGPA:<br /><br />
-  								5th Sem CGPA:<br /><br />
-  								6th Sem CGPA:<br /><br />
-  								7th Sem CGPA:<br /><br />
-  								8th Sem CGPA:<br /><br />
+  								1st Sem SGPA:<br /><br />
+  								2nd Sem SGPA:<br /><br />
+  								3rd Sem SGPA:<br /><br />
+  								4th Sem SGPA:<br /><br />
+  								5th Sem SGPA:<br /><br />
+  								6th Sem SGPA:<br /><br />
+  								7th Sem SGPA:<br /><br />
+  								8th Sem SGPA:<br /><br />
   								Total Credits Earned:<br /><br />
 								  Cleared Arrears:<br /><br />
   							</div>
   							<div id="ans">
-  								{props.cgpa1}<br /><br />
-                  {props.cgpa2}<br /><br />
-                  {props.cgpa3}<br /><br />
-                  {props.cgpa4}<br /><br />
-                  {props.cgpa5}<br /><br />
-                  {props.cgpa6}<br /><br />
-                  {props.cgpa7}<br /><br />
-                  {props.cgpa8}<br /><br />
+  								{props.sgpa1}<br /><br />
+                  {props.sgpa2}<br /><br />
+                  {props.sgpa3}<br /><br />
+                  {props.sgpa4}<br /><br />
+                  {props.sgpa5}<br /><br />
+                  {props.sgpa6}<br /><br />
+                  {props.sgpa7}<br /><br />
+                  {props.sgpa8}<br /><br />
                   {props.totcred}<br /><br />
                   {props.clearr}<br /><br />
   							</div>
-                <div id="ques">
-                  Credits Earned in Sem1:<br /><br />
-                  Credits Earned in Sem2:<br /><br />
-                  Credits Earned in Sem3:<br /><br />
-                  Credits Earned in Sem4:<br /><br />     
-                  Credits Earned in Sem5:<br /><br />
-                  Credits Earned in Sem6:<br /><br />     
-                  Credits Earned in Sem1:<br /><br />
-                  Credits Earned in Sem1:<br /><br />     
+                <div id="ques1">
+                  Credits Earned in 1st Sem:<br /><br />
+                  Credits Earned in 2nd Sem:<br /><br />
+                  Credits Earned in 3rd Sem:<br /><br />
+                  Credits Earned in 4th Sem:<br /><br />     
+                  Credits Earned in 5th Sem:<br /><br />
+                  Credits Earned in 6th Sem:<br /><br />     
+                  Credits Earned in 7th Sem:<br /><br />
+                  Credits Earned in 8th Sem:<br /><br />     
                   No of Subjects cleared in mute:<br /><br />
                   Current Arrears:<br /><br />
                 </div>
@@ -123,14 +123,14 @@ class Finalprof extends Component {
             ans4=""
           />
 					<Detail2 
-            cgpa1="9"
-            cgpa2="9"
-            cgpa3="9"
-            cgpa4="9.5"
-            cgpa5="8.5"
-            cgpa6="6"
-            cgpa7="7"
-            cgpa8="8"
+            sgpa1="9"
+            sgpa2="9"
+            sgpa3="9"
+            sgpa4="9.5"
+            sgpa5="8.5"
+            sgpa6="6"
+            sgpa7="7"
+            sgpa8="8"
             totcred="200"
             clearr="1"
             cred1="25"

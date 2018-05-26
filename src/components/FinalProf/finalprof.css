@@ -20,14 +20,19 @@
 #ques 			{
 					padding:20px;
 				}
+#ques1 			{
+					padding:20px;
+					padding-left: 100px;
+				}				
 #ans 			{
 					padding:20px;
-				}									  			  			
+					padding-left: 0px;
+				}													  			  			
 .detail 		{
  					background-color: rgb(14,39,89);
   					margin:20px;
   					padding: 20px;
-  					font-size: 30px;
+  					font-size: 20px;
   					height:auto;
   				    width:100%;
   				    color: white;
@@ -36,15 +41,15 @@
  					background-color: #f1f1f1;
   					margin:20px;
   					padding: 20px;
-  				    font-size: 30px;
+  				    font-size: 20px;
   					height:auto;
   					width:100%;
-				}					
+				}							
 .detail2		{
  					background-color: rgb(14,39,89);
   					margin:20px;
   					padding: 20px;
-  					font-size: 25px;
+  					font-size: 20px;
   					height:auto;
   					width:100%;
   					color: white;
