@@ -53,6 +53,25 @@ class CompanyFullDetail extends Component {
       registerState: '',
     };
   }
+  componentWillMount() {
+    this.setRegisterState(this.props.company.registerStatus);
+  }
+  setRegisterState(registerStatus) {
+    if (registerStatus === 0) {
+      this.setState({
+        registerState: 'Register For Company',
+      });
+    } else if (registerStatus === 1) {
+      this.setState({
+        registerState: 'You Are Registered, Click to Un-register',
+      });
+    } else {
+      this.setState({
+        registerState: 'Error Occured! Please Refresh',
+      });
+    }
+  }
+
   registerCompany(companyId) {
     const authtoken = window.localStorage.getItem('placementtoken');
     const payload = {
@@ -64,9 +83,7 @@ class CompanyFullDetail extends Component {
       body: JSON.stringify(payload),
     }).then(response => response.json())
       .then((response) => {
-        this.setState({
-          registerState: response.message,
-        });
+        this.setRegisterState(response.message);
       });
   }
   render() {
