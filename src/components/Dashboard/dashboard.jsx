@@ -19,11 +19,12 @@ class Dashboard extends Component {
     })
       .then(response => response.json())
       .then((response) => {
-        console.log(response);
         if (response.code === 200) {
           this.setState({
             companies: response.message,
           });
+        } else if (response.code === 400) {
+          this.props.history.push('/editprofile', { message: 'Please Complete Your Profile To Continue!', type: 'error' });
         }
       });
   }

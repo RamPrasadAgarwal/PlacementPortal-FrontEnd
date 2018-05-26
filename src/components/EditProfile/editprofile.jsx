@@ -13,6 +13,13 @@ class EditProfile extends Component {
     };
     this.fetchProfileDetails();
   }
+  componentWillMount() {
+    if (this.props.location.state && this.props.location.state.message) {
+      this.setState({
+        errorprofile: this.props.location.state.message,
+      });
+    }
+  }
   fetchProfileDetails() {
     fetch('/profile', {
       method: 'GET',
@@ -68,7 +75,6 @@ class EditProfile extends Component {
       currentbacklog: data.get('currentbacklog'),
       historybacklog: !!(data.get('mutebacklog') + data.get('clearbacklog')),
     };
-    console.log('hey');
     fetch('/profile', {
       method: 'POST',
       headers: { authtoken },
@@ -76,7 +82,6 @@ class EditProfile extends Component {
     })
       .then(response => response.json())
       .then((res) => {
-        console.log(res);
         if (res.code === 204) {
           this.props.history.push('/profile');
         } else {
@@ -88,7 +93,6 @@ class EditProfile extends Component {
   }
 
   render() {
-    console.log(this.state.profile);
     if (this.state.profile !== null) {
       return (
         <div className="signup-body-div">
@@ -393,7 +397,7 @@ class EditProfile extends Component {
                   type="number"
                   name="currentbacklog"
                   placeholder="Current Arrears"
-                  defaultValue={this.state.profile.currentbacklog >= 0 ? Number(this.state.profile.currentbacklog) : ''}
+                  defaultValue={this.state.profile.currentbacklog >= 0 ? this.state.profile.currentbacklog : ''}
                 />
               </Form>
             </div>
