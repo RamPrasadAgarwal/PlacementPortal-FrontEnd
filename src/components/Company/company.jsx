@@ -47,6 +47,28 @@ class CompanyHeading1 extends Component {
   }
 }
 class CompanyFullDetail extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      registerState: '',
+    };
+  }
+  registerCompany(companyId) {
+    const authtoken = window.localStorage.getItem('placementtoken');
+    const payload = {
+      companyId,
+    };
+    fetch('/register', {
+      method: 'POST',
+      headers: { authtoken },
+      body: JSON.stringify(payload),
+    }).then(response => response.json())
+      .then((response) => {
+        this.setState({
+          registerState: response.message,
+        });
+      });
+  }
   render() {
     return (
       <div className="profile">
@@ -104,9 +126,9 @@ class CompanyFullDetail extends Component {
         <div className="form-submit1">
           <button
             type="submit"
-            onClick={() => alert('remaining functionality')}
+            onClick={() => this.registerCompany(this.props.company.id)}
           >
-              Register For Company
+            {this.state.registerState}
           </button>
           <br /><br />
         </div>
