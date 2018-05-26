@@ -4,7 +4,7 @@ import Header from '../Header/header';
 import Welcome from '../Welcome/welcome';
 import EditProfile from '../EditProfile/editprofile';
 import CompanyForm from '../CompanyForm/companyform';
-import Company from '../Company/company';
+// import Company from '../Company/company';
 import Promote from '../Promote/promote';
 import Dashboard from '../Dashboard/dashboard';
 import StudentProf from '../StudentProf/studentprof';

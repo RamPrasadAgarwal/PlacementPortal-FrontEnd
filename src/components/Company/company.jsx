@@ -4,22 +4,24 @@ import { withRouter } from 'react-router-dom';
 // import PropTypes from 'prop-types';
 import './company.css';
 
-function datetime(datetime) {
-  return new Date(datetime).toLocaleString();
+function datetime(dateTime) {
+  return new Date(dateTime).toLocaleString();
 }
 class Companyprof extends Component {
-  constructor(props) {
-    super(props);
-  }
   render() {
     return (
-      <div>
-        <div className="profile">
-          <h1>{this.props.company.name}</h1>
-          {this.props.company.position}<br />
-          {this.props.company.location}
-          <hr />
-        </div>
+      <div className="profile">
+        <h1>
+          {this.props.company.name}
+          <span className="toggle-button">
+            <button
+              type="submit"
+              onClick={() => this.props.toggle()}
+            >
+              {this.props.toggleState ? 'Expand' : 'Collapse'}
+            </button>
+          </span>
+        </h1>
       </div>
     );
   }
@@ -28,7 +30,7 @@ class Descript extends Component {
   render() {
     return (
       <div>
-        <b>{this.props.value}</b><br />
+        <b>{this.props.value}</b><br /><br />
         {this.props.info}
       </div>
     );
@@ -38,7 +40,7 @@ class Descript1 extends Component {
   render() {
     return (
       <div>
-        <b>{this.props.value}</b><br />
+        <b>{this.props.value}</b><br /><br />
         {this.props.info1}<br />
         {this.props.info2}<br />
         {this.props.info3}<br />
@@ -50,11 +52,24 @@ class Detail1 extends Component {
   render() {
     return (
       <div className="profile1">
-        <h1>{this.props.company.name}</h1>
+        <h1>
+          {this.props.company.name}
+          <span className="toggle-button">
+            <button
+              type="submit"
+              onClick={() => this.props.toggle()}
+            >
+              {this.props.toggleState ? 'Expand' : 'Collapse'}
+            </button>
+          </span>
+        </h1>
         <h3>{this.props.company.position}<br />
           {this.props.company.location}<hr />
-          Deadline: {datetime(this.props.company.deadline)}
         </h3>
+        <h4>
+          Deadline: {datetime(this.props.company.deadline)}<br />
+          CTC: {`${this.props.company.ctc} Lacs`}
+        </h4>
         <hr />
         <div>
           <Descript
@@ -68,29 +83,37 @@ class Detail1 extends Component {
           />
           <hr />
           <Descript1
-            value="Requirements"
-            // info1="10th Percentage:"
-            // info2="12th Percentage:{add the info here}"
-            info3={`CGPA: ${this.props.company.cgpa}`}
+            value="Eligibilty"
+            info1={`CGPA: ${this.props.company.cgpa}`}
+            info2={`Branches: 
+            ${this.props.company.cse ? 'CSE ' : ''}
+            ${this.props.company.ise ? 'ISE ' : ''}
+            ${this.props.company.ec ? 'EC ' : ''}
+            ${this.props.company.eee ? 'EEE ' : ''}
+            ${this.props.company.ip ? 'IP ' : ''}
+            ${this.props.company.cv ? 'CV ' : ''}
+            ${this.props.company.me ? 'ME ' : ''}
+            `}
+            info3={`History Backlog: ${this.props.company.history ? 'Allowed' : 'Not Allowed'}`}
           />
           <hr />
           <Descript1
-            value="Requirements"
-            info1={`Salary: ${this.props.company.ctc} Lacs`}
-            info2={`Test Date: ${datetime(this.props.company.test)}`}
-            info3={`Interview Date: ${datetime(this.props.company.interview)}`}
+            value="Process Details"
+            info1={`Test Date: ${datetime(this.props.company.test)}`}
+            info2={`Interview Date: ${datetime(this.props.company.interview)}`}
+            info3={`Venue: ${this.props.company.venue}`}
           />
           <hr />
           <br />
-          <div className="form-submit1">
-            <button
-              type="submit"
-              onClick={() => alert('remaining functionality')}
-            >
-              Register
-            </button>
-            <br /><br />
-          </div>
+        </div>
+        <div className="form-submit1">
+          <button
+            type="submit"
+            onClick={() => alert('remaining functionality')}
+          >
+              Register For Company
+          </button>
+          <br /><br />
         </div>
       </div>
     );
@@ -109,8 +132,18 @@ class Detail extends Component {
     });
   }
   show() {
-    // if (this.state.isHidden) { return <Companyprof company={this.props.company} />; }
-    return <Detail1 company={this.props.company} />;
+    if (this.state.isHidden) {
+      return (<Companyprof
+        company={this.props.company}
+        toggle={() => this.toggleHidden()}
+        toggleState={this.state.isHidden}
+      />);
+    }
+    return (<Detail1
+      company={this.props.company}
+      toggle={() => this.toggleHidden()}
+      toggleState={this.state.isHidden}
+    />);
   }
   render() {
     return (

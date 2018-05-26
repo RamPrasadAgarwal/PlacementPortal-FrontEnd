@@ -28,11 +28,7 @@ class Dashboard extends Component {
   }
   render() {
     if (this.state.companies !== null) {
-      this.state.companies.map((company) => {
-        console.log(company);
-          <Company company={company} />;
-      });
-      console.log(this.state.companies);
+      this.state.companies.map(company => <Company company={company} />);
       return (
         <div>
           {this.state.companies.map(company =>

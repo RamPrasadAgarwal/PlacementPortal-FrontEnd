@@ -1,60 +1,58 @@
-.profile
-		{
-			width: 52%;
-    		height: 250px;    
-    		padding: 3%;
-    		background: rgb(14,39,89);
-    		border: 2px solid black;
-    		box-sizing: border-box;
-    		margin-top: 4%;
-    		margin-left: 25%;
-    		font-size: 19px;
-            color: white;
-		}
-.profile img
-		{
-			width:50px;
-			height: 50px;
-		}
-.profile1
-		{
-			width: 52%;
-    		height: 100%;    
-    		padding-left: 50px;
-            padding-right: 50px;
-    		background: rgb(14,39,89);
-    		border: 2px solid black;
-    		box-sizing: border-box;
-    		margin-top: 4%;
-    		margin-left: 25%;
-    		font-size: 18px;
-            color: white;
-		}		
-.link
-		{
-			width: 52%;
-			height: 40px;    
-    		padding: 10px;
-    		background: rgb(14,39,89);
-    		border: 2px solid black;
-    		box-sizing: border-box;
-    		margin-left: 25%;
-		}
-.profile1 b
-        {
-            font-size: 30px;
-        }
-.profile1 h1
-        {
-            font-size: 50px;
-        }      
-.form-submit1 button{
-          background: rgb(240,115,2);
-          border: none;
-          color: white;
-          font-size: 16px;
-          padding: 20px 10%;
-          border-radius: 5px;
-          display: block;
-          margin: auto;
-        }   
+.profile {
+	width: 52%;
+    /* height: 250px;     */
+    padding: 20px 40px;
+    background: rgb(14,39,89);
+    border: 2px solid black;
+    box-sizing: border-box;
+    margin-top: 20px;
+    margin-left: 25%;
+    font-size: 19px;
+    color: white;
+}
+.profile img {
+	width:50px;
+	height: 50px;
+}
+.profile1 {
+	width: 52%;
+    height: 100%;    
+    padding-left: 50px;
+    padding-right: 50px;
+    background: rgb(14,39,89);
+    border: 2px solid black;
+    box-sizing: border-box;
+    margin-top: 4%;
+    margin-left: 25%;
+    font-size: 18px;
+    color: white;
+}		
+.link {
+	width: 52%;
+	height: 40px;    
+    padding: 10px;
+    background: rgb(14,39,89);
+    border: 2px solid black;
+    box-sizing: border-box;
+    margin-left: 25%;
+}
+.profile1 b{
+    font-size: 30px;
+}
+.profile1 h1 {
+    font-size: 50px;
+}      
+.form-submit1 button, .toggle-button button {
+    background: rgb(240,115,2);
+    border: none;
+    color: white;
+    font-size: 16px;
+    padding: 20px 10%;
+    border-radius: 5px;
+    display: block;
+    margin: auto;
+}   
+.toggle-button button {
+	display: inline-block;
+	float: right;
+}
