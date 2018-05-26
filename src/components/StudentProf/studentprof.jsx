@@ -139,13 +139,13 @@ class Studentprof extends Component {
               td1="Total Credits Earned "
               td2={this.state.profile.totalcredit}
               td3="No of Subjects cleared in mute"
-              td4={this.state.profile.mutebacklog}
+              td4={this.state.profile.mutebacklog >= 0 ? this.state.profile.mutebacklog : ''}
             />
             <Tab
               td1="Cleared Arrears "
-              td2={this.state.profile.clearbacklog}
+              td2={this.state.profile.clearbacklog >= 0 ? this.state.profile.clearbacklog : ''}
               td3="Current Arrears"
-              td4={this.state.profile.currentbacklog}
+              td4={this.state.profile.currentbacklog >= 0 ? this.state.profile.currentbacklog : ''}
             />
           </table>
         </div>
