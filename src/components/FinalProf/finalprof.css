@@ -12,34 +12,23 @@
   					margin: 1.5%;
   					padding: 1.5%;
   					font-size: 30px;
-  					height:75%;
+  					height:auto;
   					width:25%;
   					position: fixed;
   					color: white;
 				}	
 #ques 			{
-					padding:10px;
+					padding:20px;
 				}
 #ans 			{
-					padding:10px;
-				}				
-#ques1 			{
-					padding:5px;
-				}
-#ans1 			{
-					padding:5px;
-				}								  
-div.profile img{
 					padding:20px;
-					width: 50%;
-					height: auto;
-				}					  			
+				}									  			  			
 .detail 		{
  					background-color: rgb(14,39,89);
   					margin:20px;
   					padding: 20px;
   					font-size: 30px;
-  					height:50%;
+  					height:auto;
   				    width:100%;
   				    color: white;
 				}			
@@ -48,15 +37,15 @@ div.profile img{
   					margin:20px;
   					padding: 20px;
   				    font-size: 30px;
-  					height:50%;
+  					height:auto;
   					width:100%;
 				}					
 .detail2		{
  					background-color: rgb(14,39,89);
   					margin:20px;
   					padding: 20px;
-  					font-size: 30px;
-  					height:90%;
+  					font-size: 25px;
+  					height:auto;
   					width:100%;
   					color: white;
 				}										  			  

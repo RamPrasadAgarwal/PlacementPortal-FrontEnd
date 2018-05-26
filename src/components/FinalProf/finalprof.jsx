@@ -32,7 +32,7 @@ function Detail2(props) {
   				<div class="detail2">
   					<div id ="heading"><b>Engineering Details</b></div><br /><hr />
   						<div class="flex-container1">
-  							<div id="ques1">
+  							<div id="ques">
   								1st Sem CGPA:<br /><br />
   								2nd Sem CGPA:<br /><br />
   								3rd Sem CGPA:<br /><br />
@@ -44,7 +44,7 @@ function Detail2(props) {
   								Total Credits Earned:<br /><br />
 								  Cleared Arrears:<br /><br />
   							</div>
-  							<div id="ans1">
+  							<div id="ans">
   								{props.cgpa1}<br /><br />
                   {props.cgpa2}<br /><br />
                   {props.cgpa3}<br /><br />
@@ -56,7 +56,7 @@ function Detail2(props) {
                   {props.totcred}<br /><br />
                   {props.clearr}<br /><br />
   							</div>
-                <div id="ques1">
+                <div id="ques">
                   Credits Earned in Sem1:<br /><br />
                   Credits Earned in Sem2:<br /><br />
                   Credits Earned in Sem3:<br /><br />
@@ -68,7 +68,7 @@ function Detail2(props) {
                   No of Subjects cleared in mute:<br /><br />
                   Current Arrears:<br /><br />
                 </div>
-                <div id="ans1">
+                <div id="ans">
                   {props.cred1}<br /><br />
                   {props.cred2}<br /><br />
                   {props.cred3}<br /><br />
@@ -123,26 +123,26 @@ class Finalprof extends Component {
             ans4=""
           />
 					<Detail2 
-            cgpa1=""
-            cgpa2=""
-            cgpa3=""
-            cgpa4=""
-            cgpa5=""
-            cgpa6=""
-            cgpa7=""
-            cgpa8=""
-            totcred=""
-            clearr=""
-            cred1=""
-            cred2=""
-            cred3=""
-            cred4=""
-            cred5=""
-            cred6=""
-            cred7=""
-            cred8=""
-            mute=""
-            curarr=""
+            cgpa1="9"
+            cgpa2="9"
+            cgpa3="9"
+            cgpa4="9.5"
+            cgpa5="8.5"
+            cgpa6="6"
+            cgpa7="7"
+            cgpa8="8"
+            totcred="200"
+            clearr="1"
+            cred1="25"
+            cred2="25"
+            cred3="25"
+            cred4="25"
+            cred5="25"
+            cred6="25"
+            cred7="25"
+            cred8="25"
+            mute="25"
+            curarr="25"
           />
         </div>
 			);
