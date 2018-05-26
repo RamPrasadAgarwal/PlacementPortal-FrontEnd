@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-// import Form from '../Form/form';
-// import PropTypes from 'prop-types';
 import './company.css';
 
 function datetime(dateTime) {
   return new Date(dateTime).toLocaleString();
 }
-class Companyprof extends Component {
+class Companybanner extends Component {
   render() {
     return (
       <div className="profile">
@@ -26,21 +24,21 @@ class Companyprof extends Component {
     );
   }
 }
-class Descript extends Component {
+class CompanyHeading extends Component {
   render() {
     return (
       <div>
-        <b>{this.props.value}</b><br /><br />
+        <div className="subheading">{this.props.value}</div>
         {this.props.info}
       </div>
     );
   }
 }
-class Descript1 extends Component {
+class CompanyHeading1 extends Component {
   render() {
     return (
       <div>
-        <b>{this.props.value}</b><br /><br />
+        <div className="subheading">{this.props.value}</div>
         {this.props.info1}<br />
         {this.props.info2}<br />
         {this.props.info3}<br />
@@ -48,10 +46,10 @@ class Descript1 extends Component {
     );
   }
 }
-class Detail1 extends Component {
+class CompanyFullDetail extends Component {
   render() {
     return (
-      <div className="profile1">
+      <div className="profile">
         <h1>
           {this.props.company.name}
           <span className="toggle-button">
@@ -63,26 +61,23 @@ class Detail1 extends Component {
             </button>
           </span>
         </h1>
-        <h3>{this.props.company.position}<br />
-          {this.props.company.location}<hr />
-        </h3>
-        <h4>
+        {this.props.company.position}<br />
+        {this.props.company.location}<hr />
           Deadline: {datetime(this.props.company.deadline)}<br />
           CTC: {`${this.props.company.ctc} Lacs`}
-        </h4>
         <hr />
         <div>
-          <Descript
-            value="Job Description"
+          <CompanyHeading
+            value="Job CompanyHeadingion"
             info={this.props.company.jd}
           />
           <hr />
-          <Descript
+          <CompanyHeading
             value="About Company"
             info={this.props.company.about}
           />
           <hr />
-          <Descript1
+          <CompanyHeading1
             value="Eligibilty"
             info1={`CGPA: ${this.props.company.cgpa}`}
             info2={`Branches: 
@@ -97,7 +92,7 @@ class Detail1 extends Component {
             info3={`History Backlog: ${this.props.company.history ? 'Allowed' : 'Not Allowed'}`}
           />
           <hr />
-          <Descript1
+          <CompanyHeading1
             value="Process Details"
             info1={`Test Date: ${datetime(this.props.company.test)}`}
             info2={`Interview Date: ${datetime(this.props.company.interview)}`}
@@ -119,7 +114,7 @@ class Detail1 extends Component {
     );
   }
 }
-class Detail extends Component {
+class Company extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -133,13 +128,13 @@ class Detail extends Component {
   }
   show() {
     if (this.state.isHidden) {
-      return (<Companyprof
+      return (<Companybanner
         company={this.props.company}
         toggle={() => this.toggleHidden()}
         toggleState={this.state.isHidden}
       />);
     }
-    return (<Detail1
+    return (<CompanyFullDetail
       company={this.props.company}
       toggle={() => this.toggleHidden()}
       toggleState={this.state.isHidden}
@@ -149,10 +144,9 @@ class Detail extends Component {
     return (
       <div>
         {this.show()}
-
       </div>
     );
   }
 }
-export default withRouter(Detail);
+export default withRouter(Company);
 
