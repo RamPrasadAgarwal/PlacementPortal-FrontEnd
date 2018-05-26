@@ -3,6 +3,35 @@ import { withRouter } from 'react-router-dom';
 // import Form from '../Form/form';
 // import PropTypes from 'prop-types';
 import './finalprof.css';
+function Notify(){
+  return(
+          <div class="notification">
+              Congratulations!!!! You Have Been Placed!!!
+          </div>      
+  );
+}
+function Detail(props){
+  return(
+          <div class="profile">
+            <div id ="heading"><b>{props.name}</b></div><br/>
+            <div id="heading1">{props.branch}</div>
+            <div id="heading2">{props.usn}</div><br/>  
+            <div id="heading3">
+              Gender:{props.gender} <br />
+              Phone No:{props.phno}<br />
+              Email:{props.mail}<br />
+              Date of Birth:{props.bdate}<br />
+              CGPA:{props.cgpa}<br />
+              Placement Status:{props.place}
+            </div><br />
+            <div className="form-submit3">
+              <button type="submit">
+                Edit Profile
+              </button>
+            </div>      
+          </div>
+  );
+}
 function Detail1(props) {
   return (
   			<div className="flex-container">
@@ -86,26 +115,30 @@ function Detail2(props) {
 	);
 }
 class Finalprof extends Component {
+   constructor(props) {
+    super(props);
+    this.state = {
+      isplaced: true,  /*add the placement status value {this.props.placed}*/
+    };
+  }
+  show() {
+    if (this.state.isplaced) { 
+                              return <Notify />; }
+  }
 	render(){
 		return(
 				<div>	
-					<div class="profile">
-            <div id ="heading"><b>SHETTY HARSHIT ARUN</b></div><br/>
-						<div id="heading1">COMPUTER SCIENCE AND ENGINEERING</div>
-						<div id="heading2">4NI14CS080</div><br/>	
-            <div id="heading3">
-              Gender:Male <br />
-              Phone No:8296367189<br />
-              Email: harshit1806@gmail.com<br />
-              Date of Birth:18/06/1996<br />
-              CGPA: 8.71
-            </div><br />
-            <div className="form-submit3">
-              <button type="submit">
-                Edit Profile
-              </button>
-            </div>			
-					</div>
+          {this.show()}
+					<Detail
+            name="SHETTY HARSHIT ARUN"
+            branch="Computer Science"
+            usn="4ni14cs080"
+            gender="Male"
+            phno="8296367189"
+            mail="harshit1806@gmail.com"
+            bdate="18/06/1996"
+            cgpa="9.3"s
+          />
 					<Detail1
             det="detail"
             val="10"
