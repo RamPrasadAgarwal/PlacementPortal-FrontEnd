@@ -45,6 +45,7 @@ class Welcome extends Component {
               window.localStorage.setItem('placementtoken', response.token);
               window.localStorage.setItem('placementusername', response.fullName);
               window.localStorage.setItem('placementloggedin', 'true');
+              window.localStorage.setItem('placementispc', response.isPC);
               this.props.history.push('/editprofile');
               break;
 
@@ -75,6 +76,7 @@ class Welcome extends Component {
           case 200:
             window.localStorage.setItem('placementtoken', response.token);
             window.localStorage.setItem('placementusername', response.fullName);
+            window.localStorage.setItem('placementispc', response.isPC);
             window.localStorage.setItem('placementloggedin', 'true');
             this.props.history.push('/dashboard');
             break;

@@ -107,7 +107,7 @@ class CompanyFullDetail extends Component {
         <hr />
         <div>
           <CompanyHeading
-            value="Job CompanyHeadingion"
+            value="Job Description"
             info={this.props.company.jd}
           />
           <hr />
@@ -147,7 +147,7 @@ class CompanyFullDetail extends Component {
           >
             {this.state.registerState}
           </button>
-          <br /><br />
+          <br />
         </div>
       </div>
     );

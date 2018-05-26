@@ -114,7 +114,7 @@ class Company extends Component {
               error={this.state.error}
               errorType={this.state.errortype}
               formHeading={`Hi! ${window.localStorage.getItem('placementusername')}, Please provide the Company details`}
-              buttonMessage="Register Company"
+              buttonMessage="Enroll Company"
               submit={(e) => { this.profileedit(e); }}
             >
               <input

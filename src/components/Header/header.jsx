@@ -20,6 +20,7 @@ class Header extends Component {
     window.localStorage.setItem('placementtoken', null);
     window.localStorage.setItem('placementusername', null);
     window.localStorage.setItem('placementloggedin', null);
+    window.localStorage.setItem('placementispc', null);
     this.forceUpdate();
     this.props.history.push('/');
   }
@@ -52,6 +53,16 @@ class Header extends Component {
               >
                 <p>Profile</p>
               </NavLink>
+              {window.localStorage.getItem('placementispc') === 'true' ?
+                <NavLink
+                  className="register-button-a"
+                  activeClassName="Header-button-selected"
+                  to="/newcompany"
+                >
+                  <p>Enroll Company</p>
+                </NavLink>
+                : ''
+              }
             </div>
               : ''}
           {
