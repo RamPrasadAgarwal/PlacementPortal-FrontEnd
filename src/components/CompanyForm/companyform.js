@@ -52,6 +52,7 @@ class Company extends Component {
           this.setState({
             errortype: 'Success',
           });
+          this.props.history.push('/dashboard');
         } else {
           this.setState({
             errortype: 'Error',
