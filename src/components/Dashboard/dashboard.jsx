@@ -19,6 +19,7 @@ class Dashboard extends Component {
     })
       .then(response => response.json())
       .then((response) => {
+        console.log(response);
         if (response.code === 200) {
           this.setState({
             companies: response.message,
@@ -28,7 +29,6 @@ class Dashboard extends Component {
   }
   render() {
     if (this.state.companies !== null) {
-      this.state.companies.map(company => <Company company={company} />);
       return (
         <div>
           {this.state.companies.map(company =>
