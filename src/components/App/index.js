@@ -4,12 +4,11 @@ import Header from '../Header/header';
 import Welcome from '../Welcome/welcome';
 import EditProfile from '../EditProfile/editprofile';
 import CompanyForm from '../CompanyForm/companyform';
-// import Company from '../Company/company';
 import Promote from '../Promote/promote';
 import Place from '../Place/place';
 import Dashboard from '../Dashboard/dashboard';
-import StudentProf from '../StudentProf/studentprof';
 import RegisterStudentList from '../RegisterStudentList/registerStudentList';
+import FinalProf from '../FinalProf/finalprof';
 
 const App = () => (
   <div className="App">
@@ -20,7 +19,7 @@ const App = () => (
       <Route exact path="/newcompany" component={CompanyForm} />
       <Route exact path="/dashboard" component={Dashboard} />
       <Route exact path="/dashboard1" component={Dashboard} />
-      <Route exact path="/profile" component={StudentProf} />
+      <Route exact path="/profile" component={FinalProf} />
       <Route exact path="/promote" component={Promote} />
       <Route exact path="/place" component={Place} />
       <Route exact path="/companylist" component={RegisterStudentList} />
