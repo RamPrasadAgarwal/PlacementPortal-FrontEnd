@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import './finalprof.css';
-// import Notify from './notify';
+import Notify from './notify';
 import Detail from './detail';
 import Detail1 from './instdetail';
 import Detail2 from './engdetail';
