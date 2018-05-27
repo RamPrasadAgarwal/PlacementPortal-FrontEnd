@@ -7,13 +7,13 @@
   					display: flex;
   					margin-left:1.5%;
   				}				
-.profile 		{
+.profiles 		{
  					background-color: rgb(14,39,89);
   					margin: 2% 6%;
   					padding: 2%;
   					font-size: 30px;
   					height:auto;
-  					width:27%;
+  					width:25%;
   					position: fixed;
   					color: white;
 				}	
@@ -22,14 +22,19 @@
 					width: 23%;
 				}
 #ques1 			{
-					padding:2%;
-					padding-left: 10%;
+					padding:2% 10%;	
+					width: auto;
+				}		
+#ques2 	{	
 					width: 35%;
-				}				
+				}								
 #ans 			{
 					padding:2%;
 					padding-left: 0px;
-				}													  			  			
+				}	
+#ans1			{
+					padding:2% 0%;
+				}																  			  			
 .detail 		{
  					background-color: rgb(14,39,89);
 						margin:2.77% 10%;

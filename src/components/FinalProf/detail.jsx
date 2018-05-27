@@ -10,14 +10,14 @@ class Details extends Component {
   }
   render() {
     return (
-      <div className="profile">
+      <div className="profiles">
         <div id="heading"><b>{this.props.name}</b></div><br />
         <div id="heading1">{this.props.branch}</div>
         <div id="heading2">{this.props.usn}</div>
         <div id="heading2">CGPA: {this.props.cgpa}</div><br />
         <div className="flex-container1">
           <div id="heading3">
-            <div id="ques">
+            <div id="ques2">
           Email: <br />
           Gender:  <br />
           Contact: <br />
@@ -25,7 +25,7 @@ class Details extends Component {
             </div>
           </div>
           <div id="heading3">
-            <div id="ques">
+            <div id="ques2">
               {this.props.email}<br />
               {this.props.gender} <br />
               {this.props.phno}<br />

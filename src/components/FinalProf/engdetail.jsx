@@ -44,7 +44,7 @@ function Details2(props) {
                 			  No of Subjects cleared in mute:<br /><br />
                 			  Current Arrears:<br /><br />
           </div>
-          <div id="ans">
+          <div id="ans1">
             {props.cred1}<br /><br />
             {props.cred2}<br /><br />
             {props.cred3}<br /><br />
