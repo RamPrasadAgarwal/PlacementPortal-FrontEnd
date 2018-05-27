@@ -8,7 +8,7 @@ function datetime(dateTime) {
 class Companybanner extends Component {
   render() {
     return (
-      <div className="profile">
+      <div className="company-profile">
         <h1>
           {this.props.company.name}
           <span className="toggle-button">
@@ -88,7 +88,7 @@ class CompanyFullDetail extends Component {
   }
   render() {
     return (
-      <div className="profile">
+      <div className="company-profile">
         <h1>
           {this.props.company.name}
           <span className="toggle-button">
