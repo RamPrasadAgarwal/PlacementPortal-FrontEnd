@@ -1,0 +1,25 @@
+#academics1 {
+  border-collapse: collapse;
+  width: 65%;
+  margin-left: 17%;
+  border: 1px solid black;
+  margin-top:5%;
+}
+#academics1 td {
+  border: 1px solid black;
+  padding: 1%;
+  height:auto;
+  /* min-width: 80px; */
+}
+#academics1 tr:nth-child(even){background-color: white;}
+#academics1 tr:nth-child(odd){background-color:  rgb(14,39,89);color:white;}
+#academics1 th {
+  padding-top: 2%;
+  padding-bottom: 2%;
+  text-align: left;
+  background-color: rgb(14,39,89);
+  color: white;
+}
+#academics1 tr:nth-child(2){
+  text-align: center;
+}

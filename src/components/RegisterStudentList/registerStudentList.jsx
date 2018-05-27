@@ -7,72 +7,76 @@ class RegisterStudentList extends Component {
   constructor() {
     super();
     this.state = {
-      error: null,
-      errortype: null,
+      companyList: null,
     };
   }
-
-  promoteUser(e) {
-    e.preventDefault();
-    const data = new FormData(e.target);
-    const usn = data.get('usn');
-    const password = data.get('password');
+  componentWillMount() {
+    if (this.props.location.state && this.props.location.state.companyId) {
+      this.fetchCompanyList();
+    } else {
+      this.props.history.push('/dashboard');
+    }
+  }
+  fetchCompanyList() {
     const payload = {
-      usn,
-      password,
+      companyId: this.props.location.state.companyId,
     };
-    fetch('/promote', {
+    fetch('/studentlist', {
       method: 'POST',
       body: JSON.stringify(payload),
+      headers: { authtoken: window.localStorage.getItem('placementtoken') },
     })
       .then(response => response.json())
       .then((response) => {
-        if (response.message === 'Pomoted Successfully') {
-          this.setState({
-            errortype: 'Success',
-          });
-        } else {
-          this.setState({
-            errortype: 'Error',
-          });
-        }
         this.setState({
-          error: response.message,
+          companyList: response.message,
         });
       });
   }
-
+  // 'fullname', 'usn', 'xmarks', 'xiimarks', 'cgpa', 'branch'
   render() {
-    return (
-      <div className="signup-body-div">
-        <div className="signup-body">
-          <div className="signup-text">
-            <div className="LoginForm" />
-          </div>
-          <Form
-            error={this.state.error}
-            errorType={this.state.errortype}
-            submit={(e) => { this.promoteUser(e); }}
-            formHeading="Promote To Placement Co-ordinator"
-            buttonMessage="Promote"
-          >
-            <input
-              type="text"
-              name="usn"
-              required
-              placeholder="USN of Student"
+    if (this.state.companyList !== null) {
+      return (
+        <div>
+          <table id="academics1">
+            <tr>
+              <th colSpan="6"><center>List of Students</center></th>
+            </tr>
+            <Tab
+              td1="Name"
+              td2="Usn"
+              td3="10th marks"
+              td4="12th marks"
+              td5="Cgpa"
+              td6="Branch"
             />
-            <input
-              type="password"
-              name="password"
-              placeholder="Admin Password"
-              required
-            />
-          </Form>
+            {this.state.companyList.map(student =>
+            (<Tab
+              td1={student.fullname}
+              td2={student.usn}
+              td3={student.xmarks}
+              td4={student.xiimarks}
+              td5={student.cgpa}
+              td6={student.branch}
+            />))}
+          </table>
         </div>
-      </div>
-    );
+      );
+    }
+    return 'hey';
   }
+}
+function Tab(props) {
+  return (
+    <tr>
+      <td>{props.td1}</td>
+      <td>{props.td2}</td>
+      <td>{props.td3}</td>
+      <td>{props.td4}</td>
+      <td>{props.td5}</td>
+      <td>{props.td6}</td>
+    </tr>
+  );
 }
 
 RegisterStudentList.propTypes = {

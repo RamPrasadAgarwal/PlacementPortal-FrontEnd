@@ -30,16 +30,24 @@
     border: none;
     color: white;
     font-size: 16px;
-    padding: 20px 10%;
+    padding: 20px 50px;
     border-radius: 5px;
     display: block;
     margin: auto;
 }   
 .toggle-button button {
 	display: inline-block;
-	float: right;
+    float: right;
+    margin: 0px 10px;
 }
 .subheading {
     margin-bottom: 10px;
     font-weight: bold;
+}
+.company-setting button {
+    padding: 10px 10px;    
+}
+.company-setting button img {
+    width: 34px;
+    height: 34px;
 }

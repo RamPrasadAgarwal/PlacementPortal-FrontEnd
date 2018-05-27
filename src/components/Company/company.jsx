@@ -18,6 +18,16 @@ class Companybanner extends Component {
             >
               {this.props.toggleState ? 'Expand' : 'Collapse'}
             </button>
+            {window.localStorage.getItem('placementispc') === 'true' ?
+              <span className="company-setting">
+                <button
+                  type="submit"
+                  onClick={() => this.props.history.push('/companylist', { companyId: this.props.company.id })}
+                >
+                  <img src="./list-icon.png" alt="List of Students" className="list-icon" />
+                </button>
+              </span>
+            : ''}
           </span>
         </h1>
       </div>
@@ -54,7 +64,7 @@ class CompanyFullDetail extends Component {
     };
   }
   componentWillMount() {
-    this.setRegisterState(this.props.company.registerStatus);
+    this.setRegisterState(this.props.registerState);
   }
   setRegisterState(registerStatus) {
     if (registerStatus === 0) {
@@ -143,7 +153,10 @@ class CompanyFullDetail extends Component {
         <div className="form-submit1">
           <button
             type="submit"
-            onClick={() => this.registerCompany(this.props.company.id)}
+            onClick={() => {
+              this.registerCompany(this.props.company.id);
+              this.props.toggleRegister();
+            }}
           >
             {this.state.registerState}
           </button>
@@ -158,11 +171,22 @@ class Company extends Component {
     super(props);
     this.state = {
       isHidden: true,
+      registerState: null,
     };
+  }
+  componentWillMount() {
+    this.setState({
+      registerState: this.props.company.registerStatus,
+    });
   }
   toggleHidden() {
     this.setState({
       isHidden: !this.state.isHidden,
+    });
+  }
+  toggleStatus() {
+    this.setState({
+      registerState: (this.state.registerState + 1) % 2,
     });
   }
   show() {
@@ -171,13 +195,18 @@ class Company extends Component {
         company={this.props.company}
         toggle={() => this.toggleHidden()}
         toggleState={this.state.isHidden}
+        history={this.props.history}
+      />);
+    } else if (this.state.registerState !== null) {
+      return (<CompanyFullDetail
+        company={this.props.company}
+        registerState={this.state.registerState}
+        toggleRegister={() => this.toggleStatus()}
+        toggle={() => this.toggleHidden()}
+        toggleState={this.state.isHidden}
       />);
     }
-    return (<CompanyFullDetail
-      company={this.props.company}
-      toggle={() => this.toggleHidden()}
-      toggleState={this.state.isHidden}
-    />);
+    return 'Please Wait';
   }
   render() {
     return (
@@ -188,4 +217,3 @@ class Company extends Component {
   }
 }
 export default withRouter(Company);
-

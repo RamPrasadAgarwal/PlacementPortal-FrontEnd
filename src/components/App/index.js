@@ -9,6 +9,7 @@ import Promote from '../Promote/promote';
 import Place from '../Place/place';
 import Dashboard from '../Dashboard/dashboard';
 import StudentProf from '../StudentProf/studentprof';
+import RegisterStudentList from '../RegisterStudentList/registerStudentList';
 
 const App = () => (
   <div className="App">
@@ -22,6 +23,7 @@ const App = () => (
       <Route exact path="/profile" component={StudentProf} />
       <Route exact path="/promote" component={Promote} />
       <Route exact path="/place" component={Place} />
+      <Route exact path="/companylist" component={RegisterStudentList} />
     </Switch>
   </div>
 );

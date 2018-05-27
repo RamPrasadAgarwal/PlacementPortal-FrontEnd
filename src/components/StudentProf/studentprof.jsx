@@ -28,7 +28,6 @@ class Studentprof extends Component {
     })
       .then(response => response.json())
       .then((response) => {
-        console.log(response);
         this.setState({
           profile: response.profile,
         });
@@ -36,7 +35,6 @@ class Studentprof extends Component {
   }
   render() {
     if (this.state.profile !== null) {
-      console.log(this.state.profile);
       return (
         <div>
           <div className="prof">
