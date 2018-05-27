@@ -68,26 +68,26 @@ class Detail2 extends Component {
         <div> 
         
           <Details2
-            sgpa1="9"
-            sgpa2="9"
-            sgpa3="9"
-            sgpa4="9.5"
-            sgpa5="8.5"
-            sgpa6="6"
-            sgpa7="7"
-            sgpa8="8"
-            totcred="200"
-            clearr="1"
-            cred1="25"
-            cred2="25"
-            cred3="25"
-            cred4="25"
-            cred5="25"
-            cred6="25"
-            cred7="25"
-            cred8="25"
-            mute="25"
-            curarr="25"
+            sgpa1={this.state.profile.cgpa1}
+            sgpa2={this.state.profile.cgpa2}
+            sgpa3={this.state.profile.cgpa3}
+            sgpa4={this.state.profile.cgpa4}
+            sgpa5={this.state.profile.cgpa5}
+            sgpa6={this.state.profile.cgpa6}
+            sgpa7={this.state.profile.cgpa7}
+            sgpa8={this.state.profile.cgpa8}
+            totcred={this.state.profile.totalcredit}
+            clearr={this.state.profile.clearbacklog >= 0 ? this.state.profile.clearbacklog : ''}
+            cred1={this.state.profile.credit1}
+            cred2={this.state.profile.credit2}
+            cred3={this.state.profile.credit3}
+            cred4={this.state.profile.credit4}
+            cred5={this.state.profile.credit5}
+            cred6={this.state.profile.credit6}
+            cred7={this.state.profile.credit7}
+            cred8={this.state.profile.credit8}
+            mute={this.state.profile.mutebacklog >= 0 ? this.state.profile.mutebacklog : ''}
+            curarr={this.state.profile.currentbacklog >= 0 ? this.state.profile.currentbacklog : ''}
           />
         </div>  
          );

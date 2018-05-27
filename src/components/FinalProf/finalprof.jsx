@@ -11,14 +11,30 @@ class Finalprof extends Component {
    constructor(props) {
     super(props);
     this.state = {
-      isplaced: false,  /*add the placement status value {this.props.placed}*/
+      isplaced: false,
+      profile: null,  /*add the placement status value {this.props.placed}*/
     };
+  }
+  componentWillMount() {
+    fetch('/profile', {
+      method: 'GET',
+      headers: { authtoken: window.localStorage.getItem('placementtoken') },
+    })
+      .then(response => response.json())
+      .then((response) => {
+        console.log(response);
+        this.setState({
+          profile: response.profile,
+        });
+      });
   }
   show() {
     if (this.state.isplaced) { 
                               return <Notify />; }
                              }
 	render(){
+    if (this.state.profile !== null) {
+      console.log(this.state.profile);
 		return(
 				<div>	
           {this.show()}
@@ -27,6 +43,8 @@ class Finalprof extends Component {
 					<Detail2/>
         </div>
 			);
+    }
+    return (<div>Fetching Profile details, Please wait</div>);
 	}	
 }
 

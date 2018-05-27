@@ -12,10 +12,9 @@ function Details(props){
             <div id="heading3">
               Gender:{props.gender} <br />
               Phone No:{props.phno}<br />
-              Email:{props.mail}<br />
+              Email:{props.email}<br />
               Date of Birth:{props.bdate}<br />
               CGPA:{props.cgpa}<br />
-              Placement Status:{props.place}
             </div><br />
             <div className="form-submit3">
               <button type="submit">
@@ -31,14 +30,14 @@ class Detail extends Component {
         <div> 
         
           <Details
-            name="SHETTY HARSHIT ARUN"
-            branch="Computer Science"
-            usn="4ni14cs080"
-            gender="Male"
-            phno="8296367189"
-            mail="harshit1806@gmail.com"
-            bdate="18/06/1996"
-            cgpa="9.3"s
+            name={this.state.profile.fullname.toUpperCase()}
+            branch={this.state.profile.branch}
+            usn={this.state.profile.usn.toUpperCase()}
+            gender={this.state.profile.sex}
+            phno={this.state.profile.phone}
+            email={this.state.profile.e-mail}
+            bdate={this.state.profile.dob}
+            cgpa={this.state.profile.cgpa}
           />
         </div>  
          );

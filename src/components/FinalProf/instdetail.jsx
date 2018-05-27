@@ -34,18 +34,18 @@ class Detail1 extends Component {
           <Details1
             det="detail"
             val="10"
-            ans1=""
-            ans2=""
-            ans3=""
-            ans4=""
+            ans1={this.state.profile.xinstitute}
+            ans2={this.state.profile.xboard}
+            ans3={this.state.profile.xmarks}
+            ans4={this.state.profile.xyear}
           />
 		  <Details1
             det="detail1"
             val="12"
-            ans1=""
-            ans2=""
-            ans3=""
-            ans4=""
+            ans1={this.state.profile.xiiinstitute}
+            ans2={this.state.profile.xiiboard}
+            ans3={this.state.profile.xiimarks}
+            ans4={this.state.profile.xiiyear}
           />
         </div>  
          );
