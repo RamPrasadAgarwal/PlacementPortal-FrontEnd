@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import Company from '../Company/company';
+import Notify from '../FinalProf/notify';
 // import PropTypes from 'prop-types';
 import './dashboard.css';
 
@@ -20,6 +21,7 @@ class Dashboard extends Component {
       .then(response => response.json())
       .then((response) => {
         if (response.code === 200) {
+          console.log(response.message);
           this.setState({
             companies: response.message,
           });
@@ -30,6 +32,11 @@ class Dashboard extends Component {
   }
   render() {
     if (this.state.companies !== null) {
+      console.log(this.state.companies);
+      if (this.state.companies === 'Placed') {
+        console.log('insed');
+        return (<Notify />);
+      }
       return (
         <div>
           {this.state.companies.map(company =>
