@@ -10,7 +10,7 @@ class Finalprof extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isplaced: false,
+      isplaced: true,
       profile: null, /* add the placement status value {this.props.placed} */
     };
   }
