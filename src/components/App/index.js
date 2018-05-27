@@ -8,7 +8,7 @@ import CompanyForm from '../CompanyForm/companyform';
 import Promote from '../Promote/promote';
 import Dashboard from '../Dashboard/dashboard';
 import StudentProf from '../StudentProf/studentprof';
-
+import FinalProf from '../FinalProf/finalprof';
 const App = () => (
   <div className="App">
     <Header />
@@ -20,6 +20,7 @@ const App = () => (
       <Route exact path="/dashboard1" component={Dashboard} />
       <Route exact path="/profile" component={StudentProf} />
       <Route exact path="/promote" component={Promote} />
+      <Route exact path="/final" component={FinalProf} />
     </Switch>
   </div>
 );
