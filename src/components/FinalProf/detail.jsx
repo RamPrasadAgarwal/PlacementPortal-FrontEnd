@@ -5,9 +5,6 @@ import { withRouter } from 'react-router-dom';
 import './finalprof.css';
 
 class Details extends Component {
-  constructor(props) {
-    super(props);
-  }
   render() {
     return (
       <div className="profiles">

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Form from '../Form/form';
 import './registerStudentList.css';
 
 class RegisterStudentList extends Component {
