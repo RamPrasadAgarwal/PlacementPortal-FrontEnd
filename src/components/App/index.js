@@ -6,6 +6,7 @@ import EditProfile from '../EditProfile/editprofile';
 import CompanyForm from '../CompanyForm/companyform';
 // import Company from '../Company/company';
 import Promote from '../Promote/promote';
+import Place from '../Place/place';
 import Dashboard from '../Dashboard/dashboard';
 import StudentProf from '../StudentProf/studentprof';
 
@@ -20,6 +21,7 @@ const App = () => (
       <Route exact path="/dashboard1" component={Dashboard} />
       <Route exact path="/profile" component={StudentProf} />
       <Route exact path="/promote" component={Promote} />
+      <Route exact path="/place" component={Place} />
     </Switch>
   </div>
 );
