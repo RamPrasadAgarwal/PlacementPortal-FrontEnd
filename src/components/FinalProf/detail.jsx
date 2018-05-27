@@ -4,38 +4,46 @@ import { withRouter } from 'react-router-dom';
 // import PropTypes from 'prop-types';
 import './finalprof.css';
 
-function Details(props) {
-  return (
-    <div className="profile">
-      <div id="heading"><b>{props.name}</b></div><br />
-      <div id="heading1">{props.branch}</div>
-      <div id="heading2">{props.usn}</div>
-      <div id="heading2">CGPA: {props.cgpa}</div><br />
-      <div className="flex-container1">
-        <div id="heading3">
-          <div id="ques">
+class Details extends Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return (
+      <div className="profile">
+        <div id="heading"><b>{this.props.name}</b></div><br />
+        <div id="heading1">{this.props.branch}</div>
+        <div id="heading2">{this.props.usn}</div>
+        <div id="heading2">CGPA: {this.props.cgpa}</div><br />
+        <div className="flex-container1">
+          <div id="heading3">
+            <div id="ques">
           Email: <br />
           Gender:  <br />
           Contact: <br />
           DOB: <br />
+            </div>
           </div>
-        </div>
-        <div id="heading3">
-          <div id="ques">
-            {props.email}<br />
-            {props.gender} <br />
-            {props.phno}<br />
-            {props.bdate}<br />
+          <div id="heading3">
+            <div id="ques">
+              {this.props.email}<br />
+              {this.props.gender} <br />
+              {this.props.phno}<br />
+              {this.props.bdate}<br />
+            </div>
           </div>
-        </div>
-      </div><br />
-      <div className="form-submit3">
-        <button type="submit">
+        </div><br />
+        <div className="form-submit3">
+          <button
+            type="submit"
+            onClick={() => { this.props.history.push('/editprofile'); }}
+          >
                 Edit Profile
-        </button>
+          </button>
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
 }
 class Detail extends Component {
   constructor(props) {
@@ -60,11 +68,10 @@ class Detail extends Component {
   }
   render() {
     if (this.state.profile !== null) {
-      console.log(this.state.profile);
       return (
         <div>
-
           <Details
+            history={this.props.history}
             name={this.state.profile.fullname.toUpperCase()}
             branch={this.state.profile.branch}
             usn={this.state.profile.usn.toUpperCase()}

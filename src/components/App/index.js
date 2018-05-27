@@ -8,7 +8,7 @@ import CompanyForm from '../CompanyForm/companyform';
 import Promote from '../Promote/promote';
 import Place from '../Place/place';
 import Dashboard from '../Dashboard/dashboard';
-import StudentProf from '../StudentProf/studentprof';
+import FinalProf from '../FinalProf/finalprof';
 
 const App = () => (
   <div className="App">
@@ -19,7 +19,7 @@ const App = () => (
       <Route exact path="/newcompany" component={CompanyForm} />
       <Route exact path="/dashboard" component={Dashboard} />
       <Route exact path="/dashboard1" component={Dashboard} />
-      <Route exact path="/profile" component={StudentProf} />
+      <Route exact path="/profile" component={FinalProf} />
       <Route exact path="/promote" component={Promote} />
       <Route exact path="/place" component={Place} />
     </Switch>

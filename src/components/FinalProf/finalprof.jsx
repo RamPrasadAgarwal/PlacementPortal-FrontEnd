@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-// import Form from '../Form/form';
-// import PropTypes from 'prop-types';
 import './finalprof.css';
-import Notify from './notify.jsx';
-import Detail from './detail.jsx';
-import Detail1 from './instdetail.jsx';
-import Detail2 from './engdetail.jsx';
+// import Notify from './notify';
+import Detail from './detail';
+import Detail1 from './instdetail';
+import Detail2 from './engdetail';
 
 class Finalprof extends Component {
   constructor(props) {
@@ -23,7 +21,6 @@ class Finalprof extends Component {
     })
       .then(response => response.json())
       .then((response) => {
-        console.log(response);
         this.setState({
           profile: response.profile,
         });
@@ -31,12 +28,11 @@ class Finalprof extends Component {
   }
   show() {
     if (this.state.isplaced) {
-      return <Notify />;
+      // return <Notify />;
     }
   }
   render() {
     if (this.state.profile !== null) {
-      console.log(this.state.profile);
       return (
         <div>
           {this.show()}
